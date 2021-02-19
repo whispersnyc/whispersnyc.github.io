@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+  <meta charset="utf-8">
+  <title>Clownfet.sh</title>
+  <meta name="description" content="Fear not">
+  <meta name="author" content="Clownfet.sh">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row" style="margin-top: 15%">
+      <img id="logo" src="images/logo.png" style="width: 100%"></img>
+    </div>
+    <div class="row">
+      <p>De ratione, quae ducitur ad cultum imaginum et lapidibus fuit in sequentibus: Nemo reliquit tualias sine portans secum lapis de lapidibus Sacrae Domus (al-Haram) ut Ad reverentiam eius, et quasi Mecca affectu ad signum. Qua habitavit ipse cepisset, quia lapis in eodem modo fecit et CIRCUMERRO ad CIRCUMERRO in Ka'bah (ante discessum suum de tualias), ita quaeritis eius benedic tio et affectio affirmans in altum Sacrae Domus.</p>
+    </div>
+    <div class="row" style="margin-top: 5%">
+      <center><h4>Video Games</h4></center>
+      <img class="project" src="images/FIESTA.png"></img>
+      <img class="project" src="images/SURAIMU.png"></img>
+      <img class="project" src="images/TIME.png"></img>
+    </div>
+    <div class="row" style="margin-top: 5%">
+      <center><h4>Scripts n' Programs</h4></center>
+      <img class="project" src="images/DEVIATE.png"></img>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+    $("#logo").hover(
+        function() {
+            $(this).attr("src", "images/logo.gif");
+        },
+        function() {
+            $(this).attr("src", "images/logo.png");
+        }
+    );
+    });
+  </script>
+</body>
+
+</html>
