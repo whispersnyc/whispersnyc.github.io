@@ -43,7 +43,9 @@ body {
 	text-decoration: none;
 	transition: 1s;
 }
+#tagline a:link {color: black;}
+#tagline a:visited {color: black;}
 #tagline a:hover {
 	border: black solid 1px;
 }
-
+#tagline a:active {color: black;}
