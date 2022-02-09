@@ -4,54 +4,35 @@
 <head>
   <script type="text/javascript" src="https://livejs.com/live.js"></script>
   <meta charset="utf-8">
-  <title>Clownfet.sh</title>
-  <meta name="description" content="Fear not">
-  <meta name="author" content="Clownfet.sh">
+  <title>Rakin Ishraq</title>
+  <meta name="description" content="A.I  |  Games  |  Apps  |  Websites">
+  <meta name="author" content="Rakin Ishraq">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row" style="margin-top: 5%">
-      <img id="logo" src="images/logo.png" style="width: 100%"></img>
-    </div>
-    <div class="row">
-      <center><p>Hey, I'm Rakin Ishraq. This is my quick temporary portfolio website. I'll make it prettier after GhostBlade VR. Probably...</p></center>
-    </div>
-    <div class="row" style="margin-top: 5%">
-      <center><h4>Video Games</h4></center>
-      <img onclick="alert('Tech demo will be upload to Youtube on 01.01.22')" class="project" src="images/GHOST.png"></img>
-      <img onclick="alert('Development will resume in 02.01.22')" class="project" src="images/ENTROPY.png"></img>
-    </div>
-    <div class="row" style="margin-top: 5%">
-      <center><h4>Programs/Scripts</h4></center>
-      <a href="https://github.com/rakinishraq/deviate" target="_blank" rel="noopener"><img class="project" src="images/DEVIATE.png"></img></a>
-      <a href="https://github.com/rakinishraq/fahx" target="_blank" rel="noopener"><img class="project" src="images/FAHX.png"></img></a>
-    </div>
-    <div class="row" style="margin-top: 5%">
-      <center><h4>Websites</h4></center>
-      <a href="https://rakinishraq.github.io/merc" target="_blank" rel="noopener"><img class="project" src="images/MERC.png"></img></a>
-    </div>
-    
-  </div>
-  <script>
-    $(document).ready(function() {
-    $("#logo").hover(
-        function() {
-            $(this).attr("src", "images/logo.gif");
-        },
-        function() {
-            $(this).attr("src", "images/logo.png");
-        }
-    );
-    });
-  </script>
+	<video autoplay muted loop id="cloudBG"><source src="clouds_blurred.mp4" type="video/mp4"></video>
+	<div class="page">
+		<audio autoplay id="player"><source src="music.mp3" type="audio/mpeg"></audio>
+		<img id="note" onclick="toggle_music()" src="images/catalin-fertu.png">
+		<div>
+			<img id="logo" src="images/signature.png">
+			<center><div id="tagline">
+					<a href="https://rakinishraq.github.io">A.I.</a>
+					<a href="https://rakinishraq.github.io">Games</a>
+					<a href="https://rakinishraq.github.io">Apps</a>
+					<a href="https://rakinishraq.github.io">Websites</a>
+				</div></center>
+		</div>
+	</div>
 </body>
 
+<script type="text/javascript" src="script.js"></script>
 </html>
