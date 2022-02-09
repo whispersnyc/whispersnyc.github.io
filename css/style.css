@@ -23,7 +23,7 @@ body {
 	top: 10px; right: 10px;
 	width: 2.5vh;
 	transition: 1s;
-	opacity: 0.7;
+	opacity: 0.2;
 }
 #note:hover {cursor: pointer}
 #logo {
