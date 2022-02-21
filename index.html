@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -19,18 +19,22 @@
 
 <body>
 	<video autoplay muted loop id="cloudBG"><source src="clouds_blurred.mp4" type="video/mp4"></video>
-	<div class="page">
-		<audio id="player"><source src="music.mp3" type="audio/mpeg"></audio>
-		<img id="note" onclick="toggle_music()" src="images/catalin-fertu.png">
-		<div>
-			<img id="logo" src="images/signature.png">
-			<center><div id="tagline">
-					<a href="https://rakinishraq.github.io">A.I.</a>
-					<a href="https://rakinishraq.github.io">Games</a>
-					<a href="https://rakinishraq.github.io">Apps</a>
-					<a href="https://rakinishraq.github.io">Websites</a>
-				</div></center>
-		</div>
+	<audio id="player"><source src="music.mp3" type="audio/mpeg"></audio>
+	<img id="note" onclick="toggle_music()" src="images/catalin-fertu.png">
+	<img id="logo" onclick="reset()" src="images/signature.png">
+	<div id="tagline" class="">
+		<a id="AI" onclick="tagclick(0)">A.I.</a>
+		<a id="Games" onclick="tagclick(1)">Games</a>
+		<a id="Apps" onclick="tagclick(2)">Apps</a>
+		<a id="Websites" onclick="tagclick(3)">Websites</a>
+	</div>
+	<div id="content">
+		<p><b>Lia</b>	AI secretary</p>
+		<p><b>Prisma</b>	Color-match your setup</p>
+		<p><b>Aura</b>	No-mouse Windows</p>
+		<p><b>Deja</b>	One click, multiple apps</p>
+		<p><b>Deviate VR</b>	3D animation studio</p>
+		<p><b>Jenna</b>	Automate video creation</p>
 	</div>
 </body>
 

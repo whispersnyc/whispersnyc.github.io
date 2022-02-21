@@ -3,8 +3,13 @@ var off = true;
 
 $player = new Audio("music.mp3");
 $player.volume = 0.1;
+$player.loop = true;
 $note = $("#note");
 $note.prop("opacity", "0.2");
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));	
+}
 
 function toggle_music() {
 	$player.play();
@@ -25,4 +30,27 @@ function fade(target) {
 		vol += Math.sign(target - vol) * 0.005;
 	}
 	$player.volume = vol;
+}
+
+async function tagclick(n) {
+	var tags = $("#tagline")
+	for (var i = 0; i < tags.children().length; i++) {
+		if (i != n) {tags.children()[i].classList = ""}
+	}
+	tags.children()[n].classList = "selected";
+	tags.addClass("selected");
+	$("#logo").addClass("selected");
+	await sleep(300);
+	$("#content").addClass("selected");
+}
+
+async function reset() {
+	$("#content").removeClass("selected");
+	await sleep(300);
+	var tags = $("#tagline")
+	for (var i = 0; i < tags.children().length; i++) {
+		tags.children()[i].classList = "";
+	}
+	tags.removeClass("selected");
+	$("#logo").removeClass("selected");
 }
