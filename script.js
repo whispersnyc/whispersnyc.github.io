@@ -46,7 +46,6 @@ async function tagclick(n) {
 
 async function reset() {
 	$("#content").removeClass("selected");
-	await sleep(300);
 	var tags = $("#tagline")
 	for (var i = 0; i < tags.children().length; i++) {
 		tags.children()[i].classList = "";
