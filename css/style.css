@@ -24,6 +24,7 @@ a:active { text-decoration: none; }
 
 body {
     background-color: rgb(44, 62, 80);
+    min-height: 100vh;
 }
 
 :root {
@@ -31,6 +32,7 @@ body {
 }
 
 #grain-container {
+  min-height: 100vh;
   background-color: rgba(153, 162, 255, var(--gradient-opacity));
   background-image:
     radial-gradient(at 37% 71%, hsla(284,91%,61%,var(--gradient-opacity)) 0px, transparent 50%),
@@ -62,4 +64,5 @@ body {
 h5 {
     font-family: handwriting;
     font-style: italic;
+    font-size: 24px;
 }
