@@ -41,3 +41,13 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0px 8px 32px 0 rgba(0, 0, 0. 0.37);
 }
+
+@font-face {
+    font-family: handwriting;
+    src: url(Morsal.ttf);
+}
+
+h5 {
+    font-family: handwriting;
+    font-style: italic;
+}
