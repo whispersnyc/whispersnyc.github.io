@@ -1,7 +1,11 @@
-img {
+.gallery > img {
     width: 100%;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery > img:hover {
+    transform: scale(1.1);
 }
 
 a {
@@ -10,7 +14,7 @@ a {
     margin-bottom: 40px;
     font-size: 24px;
     color: white;
-    transition: color 0.1s;
+    transition: 0.1s;
 }
 a:hover {
     color: rgb(155, 89, 182);
@@ -27,10 +31,7 @@ body {
     min-height: 100vh;
 }
 
-:root {
-  --gradient-opacity: 0.3;
-}
-
+:root {--gradient-opacity: 0.3}
 #grain-container {
   min-height: 100vh;
   background-color: rgba(153, 162, 255, var(--gradient-opacity));
@@ -62,7 +63,10 @@ body {
 }
 
 h5 {
+    padding-top: 5px;
     font-family: handwriting;
     font-style: italic;
     font-size: 24px;
 }
+
+p {padding: 5px 0px}
