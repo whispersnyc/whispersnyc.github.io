@@ -6,6 +6,8 @@
 }
 .gallery > img:hover {
     transform: scale(1.1);
+    /* -webkit-filter: blur(5px);
+    filter: blur(5px); */
 }
 
 a {
@@ -31,7 +33,11 @@ body {
     min-height: 100vh;
 }
 
-:root {--gradient-opacity: 0.3}
+:root {
+    --gradient-opacity: 0.3;
+    --cursor-x: 50%;
+    --cursor-y: 50%;
+}
 #grain-container {
   min-height: 100vh;
   background-color: rgba(153, 162, 255, var(--gradient-opacity));

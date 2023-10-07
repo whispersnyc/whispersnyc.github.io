@@ -16,3 +16,11 @@ document.addEventListener('keydown', (e) => {
   cursor = (e.keyCode == KONAMI_CODE[cursor]) ? cursor + 1 : 0;
   if (cursor == KONAMI_CODE.length) activate();
 });
+
+document.addEventListener('mousemove', (e) => {
+  const x = Math.round((e.clientX / window.innerWidth) * 100);
+  const y = Math.round((e.clientY / window.innerHeight) * 100);
+
+  document.documentElement.style.setProperty('--cursor-x', `${x}%`);
+  document.documentElement.style.setProperty('--cursor-y', `${y}%`);
+});
