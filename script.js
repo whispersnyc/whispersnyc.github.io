@@ -17,12 +17,42 @@ document.addEventListener('keydown', (e) => {
   if (cursor == KONAMI_CODE.length) activate();
 });
 
-document.addEventListener('mousemove', (e) => { // Math.round
-  const influence = 5; // 50 = 1:1
-  const x = ((e.clientX / window.innerWidth) * 2.0 - 1.0) * influence;
-  const y = ((e.clientY / window.innerHeight) * 2.0 - 1.0) * influence;
+// Define the gradient end coordinates
+const move_speed = 0.1; const flicker_speed = 0.01;
+const flicker_start = 0.2; const flicker_end = 0.5;
+let targetX = 0; let targetY = 0;
+let currentX = 0; let currentY = 0;
+let currentOpacity1 = 0.3; let currentOpacity2 = 0.3;
+let targetOpacity1 = 0.3; let targetOpacity2 = 0.3;
 
-  document.documentElement.style.setProperty('--gradient-x', `${x}%`);
-  document.documentElement.style.setProperty('--gradient-y', `${y}%`);
-  //console.log(x, y)
+const lerp = (start, end, factor) => start + (end - start) * factor;
+function randomBetween(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+const updateGradient = () => {
+  const element = document.documentElement;
+  currentX = lerp(currentX, targetX, move_speed);
+  currentY = lerp(currentY, targetY, move_speed);
+
+  currentOpacity1 = lerp(currentOpacity1, targetOpacity1, flicker_speed);
+  currentOpacity2 = lerp(currentOpacity2, targetOpacity2, flicker_speed);
+  if (Math.abs(currentOpacity1 - targetOpacity1) < 0.01)
+    targetOpacity1 = randomBetween(flicker_start, flicker_end);
+  if (Math.abs(currentOpacity2 - targetOpacity2) < 0.01)
+    targetOpacity2 = randomBetween(flicker_start, flicker_end);
+
+  element.style.setProperty('--gradient-x', `${currentX}%`);
+  element.style.setProperty('--gradient-y', `${currentY}%`);
+  element.style.setProperty('--gradient-opacity1', `${currentOpacity1}`);
+  element.style.setProperty('--gradient-opacity2', `${currentOpacity2}`);
+  requestAnimationFrame(updateGradient);
+}
+
+document.addEventListener('mousemove', (e) => {
+  const influence = 5;
+  targetX = ((e.clientX / window.innerWidth) * 2.0 - 1.0) * influence;
+  targetY = ((e.clientY / window.innerHeight) * 2.0 - 1.0) * influence;
 });
+
+updateGradient();
