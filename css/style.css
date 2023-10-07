@@ -28,6 +28,14 @@ a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
+::selection {
+  background: rgb(155, 89, 182);
+  color: white;
+}
+::-moz-selection {
+  background: rgb(155, 89, 182);
+  color: white;
+}
 body {
     background-color: rgb(44, 62, 80);
     min-height: 100vh;
@@ -35,21 +43,22 @@ body {
 
 :root {
     --gradient-opacity: 0.3;
-    --cursor-x: 50%;
-    --cursor-y: 50%;
+    --gradient-x: 0%;
+    --gradient-y: 50%;
 }
 #grain-container {
   min-height: 100vh;
   background-color: rgba(153, 162, 255, var(--gradient-opacity));
-  background-image:
-    radial-gradient(at 37% 71%, hsla(284,91%,61%,var(--gradient-opacity)) 0px, transparent 50%),
-    radial-gradient(at 83% 3%, hsla(328,83%,66%,var(--gradient-opacity)) 0px, transparent 50%),
-    radial-gradient(at 38% 42%, hsla(213,89%,70%,var(--gradient-opacity)) 0px, transparent 50%),
-    radial-gradient(at 7% 51%, hsla(279,71%,79%,var(--gradient-opacity)) 0px, transparent 50%),
-    radial-gradient(at 72% 4%, hsla(141,83%,60%,var(--gradient-opacity)) 0px, transparent 50%),
-    radial-gradient(at 75% 6%, hsla(245,60%,66%,var(--gradient-opacity)) 0px, transparent 50%),
-    radial-gradient(at 24% 53%, hsla(59,73%,71%,var(--gradient-opacity)) 0px, transparent 50%);
+  background-image: 
+    radial-gradient(at calc(37% + var(--gradient-x)) calc(71% + var(--gradient-y)), hsla(284,91%,61%,var(--gradient-opacity)) 0px, transparent 50%),
+    radial-gradient(at calc(83% + var(--gradient-x)) calc(3% + var(--gradient-y)), hsla(328,83%,66%,var(--gradient-opacity)) 0px, transparent 50%),
+    radial-gradient(at calc(38% + var(--gradient-x)) calc(42% + var(--gradient-y)), hsla(213,89%,70%,var(--gradient-opacity)) 0px, transparent 50%),
+    radial-gradient(at calc(7% + var(--gradient-x)) calc(51% + var(--gradient-y)), hsla(279,71%,79%,var(--gradient-opacity)) 0px, transparent 50%),
+    radial-gradient(at calc(72% + var(--gradient-x)) calc(4% + var(--gradient-y)), hsla(141,83%,60%,var(--gradient-opacity)) 0px, transparent 50%),
+    radial-gradient(at calc(75% + var(--gradient-x)) calc(6% + var(--gradient-y)), hsla(245,60%,66%,var(--gradient-opacity)) 0px, transparent 50%),
+    radial-gradient(at calc(24% + var(--gradient-x)) calc(53% + var(--gradient-y)), hsla(59,73%,71%,var(--gradient-opacity)) 0px, transparent 50%);
 }
+
 
 
 #grain {pointer-events: none;}

@@ -17,10 +17,12 @@ document.addEventListener('keydown', (e) => {
   if (cursor == KONAMI_CODE.length) activate();
 });
 
-document.addEventListener('mousemove', (e) => {
-  const x = Math.round((e.clientX / window.innerWidth) * 100);
-  const y = Math.round((e.clientY / window.innerHeight) * 100);
+document.addEventListener('mousemove', (e) => { // Math.round
+  const influence = 5; // 50 = 1:1
+  const x = ((e.clientX / window.innerWidth) * 2.0 - 1.0) * influence;
+  const y = ((e.clientY / window.innerHeight) * 2.0 - 1.0) * influence;
 
-  document.documentElement.style.setProperty('--cursor-x', `${x}%`);
-  document.documentElement.style.setProperty('--cursor-y', `${y}%`);
+  document.documentElement.style.setProperty('--gradient-x', `${x}%`);
+  document.documentElement.style.setProperty('--gradient-y', `${y}%`);
+  //console.log(x, y)
 });
