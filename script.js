@@ -55,4 +55,19 @@ document.addEventListener('mousemove', (e) => {
   targetY = ((e.clientY / window.innerHeight) * 2.0 - 1.0) * influence;
 });
 
-updateGradient();
+updateGradient()
+
+const hoverDelay = 100;
+document.querySelectorAll('.card').forEach(card => {
+  let hoverTimer;
+  card.addEventListener('mouseover', () => {
+    hoverTimer = setTimeout(() => {
+      card.addEventListener('click', () => {
+        window.open(card.dataset.url, '_blank');
+      }, {once: true});
+    }, hoverDelay);
+  });
+  card.addEventListener('mouseout', () => {
+    clearTimeout(hoverTimer);
+  });
+});

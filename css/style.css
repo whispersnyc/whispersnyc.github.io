@@ -18,7 +18,7 @@ body {
     src: url(Morsal.ttf);
 }
 
-h5 {
+#tagline {
     padding-top: 5px;
     font-family: handwriting;
     font-style: italic;
@@ -46,7 +46,6 @@ p {padding: 5px 0px}
 }
 
 .overlay {
-  background: #f7f7f738; /* adjust accordingly */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -63,7 +62,7 @@ p {padding: 5px 0px}
   opacity: 1;
 }
 
-.overlay h2, .overlay p {
+.overlay div {
   margin: 0;
   position: relative;
   top: 50%;
