@@ -57,17 +57,8 @@ document.addEventListener('mousemove', (e) => {
 
 updateGradient()
 
-const hoverDelay = 100;
-document.querySelectorAll('.card').forEach(card => {
-  let hoverTimer;
-  card.addEventListener('mouseover', () => {
-    hoverTimer = setTimeout(() => {
-      card.addEventListener('click', () => {
-        window.open(card.dataset.url, '_blank');
-      }, {once: true});
-    }, hoverDelay);
-  });
-  card.addEventListener('mouseout', () => {
-    clearTimeout(hoverTimer);
+document.querySelectorAll('div[data-url]').forEach(div => {
+  div.addEventListener('click', () => {
+    window.open(div.getAttribute('data-url'), '_blank');
   });
 });

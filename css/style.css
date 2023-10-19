@@ -26,48 +26,126 @@ body {
 }
 p {padding: 5px 0px}
 
-/* card and overlay */ 
-
+/* card and overlay (credit htwarriors108) */ 
 .card {
-    position: relative;
-    margin-bottom: 20px;
-    cursor: pointer;
-    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: transparent;
+    max-width: 100%;
+    perspective: 1000px;
+    aspect-ratio: 1024 / 768;
+    transform: scale(0.95);
 }
 
-.card img {
-    display: block;
+.card-inner {
+    position: relative;
     width: 100%;
     height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
 }
 
-.card:hover {
-    transform: scale(1.1);
+.card:hover .card-inner {
+    transform: rotateY(180deg) scale(1.1);
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  box-sizing: border-box;
+.card-front img {
+    width: 100%;
+    border-radius: 10px;
+    opacity: 0.7;
 }
 
-.card:hover .overlay {
-  opacity: 1;
+.card-front, .card-back {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: white;
+    box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
+    font-weight: 700;
+    border-radius: 10px;
 }
 
-.overlay div {
-  margin: 0;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+.card-back, .card-back::before {
+    background-color: rgb(255, 255, 255);
+} #prisma, #prisma::before {
+    background: linear-gradient(90deg, rgb(86, 201, 255, 0.5) 0%, rgb(255, 112, 231, 0.5) 100%);
+} #chadpov, #chadpov:before {
+    background: radial-gradient(at center bottom, rgba(255, 0, 0, 0.4), rgba(51, 255, 177, 0.5));
 }
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-front::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(20px);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0% {opacity: 1}
+    50% {opacity: 0.3}
+    100% {opacity: 1}
+}
+
+.card-grid {
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: 1.618fr 1fr;
+    grid-template-rows: 1.618fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "video text"
+        "video link";
+    border-radius: 10px;
+}
+.card-grid * {
+}
+.video {
+    grid-area: video;
+    background-color: #5990b4;
+    font-size: 4rem;
+    border-radius: 10px 0px 0px 10px;
+}
+.text {
+    grid-area: text;
+    background-color: #ecf0f1;
+    color: black;
+    font-weight: 300;
+    padding: 10px;
+    border-radius: 0px 10px 0px 0px;
+    overflow-y: auto;
+    font-size: 1.3rem;
+}
+.link {
+    grid-area: link;
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+    font-size: 3rem;
+    border-radius: 0px 0px 10px 0px;
+}
+.video, .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
 
 /* icons */
 
