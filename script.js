@@ -1,4 +1,10 @@
-var options = {
+// Define your boolean variables
+let disableAnimations = true;
+let disableBlur = true;
+let disableGrain = true;
+let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
+var grainOptions = {
   "animate": true,
   "patternWidth": 100,
   "patternHeight": 100,
@@ -7,7 +13,6 @@ var options = {
   "grainWidth": 1,
   "grainHeight": 1
 };
-grained("#grain-container", options);
 
 
 let cursor = 0; // credit Ehsan Kia
@@ -30,7 +35,13 @@ function randomBetween(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+updated = false;
 const updateGradient = () => {
+  if (isMobile) { // update once if mobile, always on pc
+    if (disableAnimations && !updated) updated = true
+    else return
+  }
+
   const element = document.documentElement;
   currentX = lerp(currentX, targetX, move_speed);
   currentY = lerp(currentY, targetY, move_speed);
@@ -62,3 +73,14 @@ document.querySelectorAll('div[data-url]').forEach(div => {
     window.open(div.getAttribute('data-url'), '_blank');
   });
 });
+
+
+if (!isMobile || !disableGrain) grained("#grain", grainOptions);
+if (isMobile) {
+  let optimizeElements = document.querySelectorAll('.optimize');
+  optimizeElements.forEach(element => {
+    if (disableAnimations) element.classList.add('disable-animations');
+    if (disableBlur) element.classList.add('disable-blur');
+    element.classList.remove('glow'); // Remove the 'glow' class
+  });
+}

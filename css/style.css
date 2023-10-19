@@ -33,6 +33,7 @@ p {padding: 5px 0px}
     perspective: 1000px;
     aspect-ratio: 1024 / 768;
     transform: scale(0.95);
+    margin-bottom: 20px;
 }
 
 .card-inner {
@@ -84,7 +85,7 @@ p {padding: 5px 0px}
     transform: rotateY(180deg);
 }
 
-.card-front::before {
+.glow::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -114,8 +115,6 @@ p {padding: 5px 0px}
         "video text"
         "video link";
     border-radius: 10px;
-}
-.card-grid * {
 }
 .video {
     grid-area: video;
@@ -175,7 +174,12 @@ a:active { text-decoration: none; }
     --gradient-y: 50%;
 }
 #grain-container {
-  min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
   background-color: rgba(153, 162, 255, var(--gradient-opacity));
   background-image: 
     radial-gradient(at calc(37% + var(--gradient-x)) calc(71% + var(--gradient-y)), hsla(284,91%,61%,var(--gradient-opacity1)) 0px, transparent 50%),
@@ -187,15 +191,18 @@ a:active { text-decoration: none; }
     radial-gradient(at calc(24% + var(--gradient-x)) calc(53% + var(--gradient-y)), hsla(59,73%,71%,var(--gradient-opacity1)) 0px, transparent 50%);
 }
 
-#grain {pointer-events: none;}
+#grain {
+    pointer-events: none;
+    height: 100vh;
+}
 
-/* experiments */
+.disable-animations {
+    animation: none !important;
+    transition: none !important;
+}
 
-.glass {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0px 8px 32px 0 rgba(0, 0, 0. 0.37);
+.disable-blur {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
