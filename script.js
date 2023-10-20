@@ -1,3 +1,23 @@
+let card = " \
+<div class=\"card\">\n\
+  <div class=\"card-inner\">\n\
+    <div class=\"card-front optimize glow\" id=\"%ID%\"><img src=\"images/%IMG%\"></div>\n\
+    <div class=\"card-back\">\n\
+      <div class=\"card-grid\">\n\
+        <div class=\"video\"><i class=\"fa-solid fa-play\"></i></div>\n\
+        <div class=\"text\">\n\
+          %TXT%<br><br>\n\
+          <em>Focus:</em> %FOCUS%<br>\n\
+          <em>Alpha:</em> %ALPHA%<br>\n\
+          <em>Beta:</em> %BETA%\n\
+        </div>\n\
+        <div class=\"link\" data-url=\"%LINK%\">\n\
+          <i class=\"fa-solid fa-arrow-right-from-bracket\"></i></div>\n\
+      </div>\n\
+    </div>\n\
+  </div>\n\
+</div>";
+
 // CARD GENERATION
 function addStyle(rule) {
   let css = document.createElement('style');
@@ -8,31 +28,32 @@ function addStyle(rule) {
 }
 
 var inserted = 0;
-var columns = document.getElementById("columns").children;
-fetch('index.md').then(r => r.text()).then(index => {
-  fetch('card.html').then(r => r.text()).then(card => {
-    index = index.trim().split("\r\n\r\n\r\n");
-    for (var line in index) { // source's cards loop
-      const cardInfo = index[line].split("\r\n");
-      const [id, img, vid] = cardInfo[1].split(" | ");
-      const link = cardInfo[2]; const bg = cardInfo[3];
-      const [focus, alpha, beta] = cardInfo.pop().split(" | ");
-      const txt = cardInfo.slice(5).join("<br>");
-      const clmn = ++inserted % 2 ? 1 : 2;
-      columns[clmn].insertAdjacentHTML("beforeend",
-        card.replace("%IMG%", img).replace("%ID%", id
-        ).replace("%TXT%", txt).replace("%FOCUS%", focus
-        ).replace("%ALPHA%", alpha.replaceAll(' ', '&nbsp')
-        ).replace("%BETA%", beta.replaceAll(' ', '&nbsp')));
-      addStyle('#'+id+"::before {background: "+bg+'}');
-      ((link) => {
-        const btn = document.getElementById(id).parentElement.querySelector('.card-back .card-grid .link');
-        btn.addEventListener('click', () => {
-          window.open(link, '_blank');
-        });
-      })(link);
-    }
-  });
+const columns = document.getElementById("columns").children;
+const sourceURL = (location.hostname === "localhost" ||
+  location.hostname === "127.0.0.1" || location.hostname === "")
+  ? "index.md" : 'https://raw.githubusercontent.com/rakinishraq/rakinishraq.github.io/main/index.md';
+fetch("index.md").then(r => r.text()).then(index => {
+  index = index.trim().split("\n\n\n");
+  for (var line in index) { // source's cards loop
+    const cardInfo = index[line].split("\n");
+    const [id, img, vid] = cardInfo[1].split(" | ");
+    const link = cardInfo[2]; const bg = cardInfo[3];
+    const [focus, alpha, beta] = cardInfo.pop().split(" | ");
+    const txt = cardInfo.slice(5).join("<br>");
+    const clmn = ++inserted % 2 ? 1 : 2;
+    columns[clmn].insertAdjacentHTML("beforeend",
+      card.replace("%IMG%", img).replace("%ID%", id
+      ).replace("%TXT%", txt).replace("%FOCUS%", focus
+      ).replace("%ALPHA%", alpha.replaceAll(' ', '&nbsp')
+      ).replace("%BETA%", beta.replaceAll(' ', '&nbsp')));
+    addStyle('#'+id+"::before {background: "+bg+'}');
+    ((link) => {
+      const btn = document.getElementById(id).parentElement.querySelector('.card-back .card-grid .link');
+      btn.addEventListener('click', () => {
+        window.open(link, '_blank');
+      });
+    })(link);
+  }
 });
 
 
