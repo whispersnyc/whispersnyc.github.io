@@ -26,7 +26,7 @@ body {
 }
 p {padding: 5px 0px}
 
-/* card and overlay (credit htwarriors108) */ 
+/* card and overlay (htwarriors108) */ 
 .card {
     background-color: transparent;
     max-width: 100%;
@@ -53,7 +53,7 @@ p {padding: 5px 0px}
 .card-front img {
     width: 100%;
     border-radius: 10px;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 .card-front, .card-back {
@@ -73,17 +73,9 @@ p {padding: 5px 0px}
     border-radius: 10px;
 }
 
-.card-back, .card-back::before {
-    background-color: rgb(255, 255, 255);
-} #prisma, #prisma::before {
-    background: linear-gradient(90deg, rgb(86, 201, 255, 0.5) 0%, rgb(255, 112, 231, 0.5) 100%);
-} #chadpov, #chadpov:before {
-    background: radial-gradient(at center bottom, rgba(255, 0, 0, 0.4), rgba(51, 255, 177, 0.5));
-}
+.card-back, .card-back::before {background-color: white}
 
-.card-back {
-    transform: rotateY(180deg);
-}
+.card-back {transform: rotateY(180deg)}
 
 .glow::before {
     top: 50%;
@@ -173,6 +165,7 @@ a:active { text-decoration: none; }
     --gradient-x: 0%;
     --gradient-y: 50%;
 }
+
 #grain-container {
     position: fixed;
     top: 0;
@@ -180,21 +173,23 @@ a:active { text-decoration: none; }
     width: 100vw;
     height: 100vh;
     z-index: -2;
-  background-color: rgba(153, 162, 255, var(--gradient-opacity));
-  background-image: 
-    radial-gradient(at calc(37% + var(--gradient-x)) calc(71% + var(--gradient-y)), hsla(284,91%,61%,var(--gradient-opacity1)) 0px, transparent 50%),
-    radial-gradient(at calc(83% + var(--gradient-x)) calc(3% + var(--gradient-y)), hsla(328,83%,66%,var(--gradient-opacity2)) 0px, transparent 50%),
-    radial-gradient(at calc(38% + var(--gradient-x)) calc(42% + var(--gradient-y)), hsla(213,89%,70%,var(--gradient-opacity1)) 0px, transparent 50%),
-    radial-gradient(at calc(7% + var(--gradient-x)) calc(51% + var(--gradient-y)), hsla(279,71%,79%,var(--gradient-opacity2)) 0px, transparent 50%),
-    radial-gradient(at calc(72% + var(--gradient-x)) calc(4% + var(--gradient-y)), hsla(141,83%,60%,var(--gradient-opacity1)) 0px, transparent 50%),
-    radial-gradient(at calc(75% + var(--gradient-x)) calc(6% + var(--gradient-y)), hsla(245,60%,66%,var(--gradient-opacity2)) 0px, transparent 50%),
-    radial-gradient(at calc(24% + var(--gradient-x)) calc(53% + var(--gradient-y)), hsla(59,73%,71%,var(--gradient-opacity1)) 0px, transparent 50%);
+    background-color: rgba(153, 162, 255, var(--gradient-opacity));
+    background-image: 
+        radial-gradient(at calc(37% + var(--gradient-x)) calc(71% + var(--gradient-y)), hsla(284,91%,61%,var(--gradient-opacity1)) 0px, transparent 50%),
+        radial-gradient(at calc(83% + var(--gradient-x)) calc(3% + var(--gradient-y)), hsla(328,83%,66%,var(--gradient-opacity2)) 0px, transparent 50%),
+        radial-gradient(at calc(38% + var(--gradient-x)) calc(42% + var(--gradient-y)), hsla(213,89%,70%,var(--gradient-opacity1)) 0px, transparent 50%),
+        radial-gradient(at calc(7% + var(--gradient-x)) calc(51% + var(--gradient-y)), hsla(279,71%,79%,var(--gradient-opacity2)) 0px, transparent 50%),
+        radial-gradient(at calc(72% + var(--gradient-x)) calc(4% + var(--gradient-y)), hsla(141,83%,60%,var(--gradient-opacity1)) 0px, transparent 50%),
+        radial-gradient(at calc(75% + var(--gradient-x)) calc(6% + var(--gradient-y)), hsla(245,60%,66%,var(--gradient-opacity2)) 0px, transparent 50%),
+        radial-gradient(at calc(24% + var(--gradient-x)) calc(53% + var(--gradient-y)), hsla(59,73%,71%,var(--gradient-opacity1)) 0px, transparent 50%);
 }
 
 #grain {
     pointer-events: none;
     height: 100vh;
 }
+
+/* optimization */
 
 .disable-animations {
     animation: none !important;

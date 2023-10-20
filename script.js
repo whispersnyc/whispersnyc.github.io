@@ -1,8 +1,54 @@
-// Define your boolean variables
+// CARD GENERATION
+function addStyle(rule) {
+  let css = document.createElement('style');
+  css.type = 'text/css';
+  if (css.styleSheet) css.styleSheet.cssText = rule; // Support for IE
+  else css.appendChild(document.createTextNode(rule)); // Support for the rest
+  document.getElementsByTagName("head")[0].appendChild(css);
+}
+
+var inserted = 0;
+var columns = document.getElementById("columns").children;
+fetch('index.md').then(r => r.text()).then(index => {
+  fetch('card.html').then(r => r.text()).then(card => {
+    index = index.trim().split("\r\n\r\n\r\n");
+    for (var line in index) { // source's cards loop
+      const cardInfo = index[line].split("\r\n");
+      const [id, img, vid] = cardInfo[1].split(" | ");
+      const link = cardInfo[2]; const bg = cardInfo[3];
+      const [focus, alpha, beta] = cardInfo.pop().split(" | ");
+      const txt = cardInfo.slice(5).join("<br>");
+      const clmn = ++inserted % 2 ? 1 : 2;
+      columns[clmn].insertAdjacentHTML("beforeend",
+        card.replace("%IMG%", img).replace("%ID%", id
+        ).replace("%TXT%", txt).replace("%FOCUS%", focus
+        ).replace("%ALPHA%", alpha.replaceAll(' ', '&nbsp')
+        ).replace("%BETA%", beta.replaceAll(' ', '&nbsp')));
+      addStyle('#'+id+"::before {background: "+bg+'}');
+      ((link) => {
+        const btn = document.getElementById(id).parentElement.querySelector('.card-back .card-grid .link');
+        btn.addEventListener('click', () => {
+          window.open(link, '_blank');
+        });
+      })(link);
+    }
+  });
+});
+
+
+// KONAMI CODE (Ehsan Kia)
+let cursor = 0;
+const PASSCODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+document.addEventListener('keydown', (e) => {
+  cursor = (e.key === PASSCODE[cursor]) ? cursor + 1 : 0;
+  if (cursor === PASSCODE.length) activate();
+});
+
+// BACKGROUND SETTINGS
+let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 let disableAnimations = true;
 let disableBlur = true;
 let disableGrain = true;
-let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
 var grainOptions = {
   "animate": true,
@@ -14,15 +60,7 @@ var grainOptions = {
   "grainHeight": 1
 };
 
-
-let cursor = 0; // credit Ehsan Kia
-const KONAMI_CODE = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-document.addEventListener('keydown', (e) => {
-  cursor = (e.keyCode == KONAMI_CODE[cursor]) ? cursor + 1 : 0;
-  if (cursor == KONAMI_CODE.length) activate();
-});
-
-// Define the gradient end coordinates
+// GRADIENT
 const move_speed = 0.1; const flicker_speed = 0.01;
 const flicker_start = 0.2; const flicker_end = 0.5;
 let targetX = 0; let targetY = 0;
@@ -68,13 +106,8 @@ document.addEventListener('mousemove', (e) => {
 
 updateGradient()
 
-document.querySelectorAll('div[data-url]').forEach(div => {
-  div.addEventListener('click', () => {
-    window.open(div.getAttribute('data-url'), '_blank');
-  });
-});
 
-
+// OPTIMIZATION
 if (!isMobile || !disableGrain) grained("#grain", grainOptions);
 if (isMobile) {
   let optimizeElements = document.querySelectorAll('.optimize');
@@ -84,3 +117,4 @@ if (isMobile) {
     element.classList.remove('glow'); // Remove the 'glow' class
   });
 }
+
