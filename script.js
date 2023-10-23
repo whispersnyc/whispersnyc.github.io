@@ -1,8 +1,8 @@
-// CARD GENERATIO
+// CARD GENERATION
 let card = " \
 <div class=\"card\">\n\
   <div class=\"card-inner\">\n\
-    <div class=\"card-front optimize glow\" id=\"%ID%\"><img src=\"images/%IMG%\"></div>\n\
+    <div class=\"card-front optimize glow\" id=\"%ID%\"><img src=\"media/%IMG%\"></div>\n\
     <div class=\"card-back\">\n\
       <div class=\"card-grid\">\n\
         <div class=\"video\"><i class=\"fa-solid fa-play\"></i></div>\n\
@@ -59,7 +59,7 @@ let cursor = 0;
 const PASSCODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 document.addEventListener('keydown', (e) => {
   cursor = (e.key === PASSCODE[cursor]) ? cursor + 1 : 0;
-  if (cursor === PASSCODE.length) activate();
+  if (cursor === PASSCODE.length) confirmation();
 });
 
 // BACKGROUND SETTINGS
