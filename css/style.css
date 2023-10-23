@@ -140,7 +140,7 @@ p {padding: 5px 0px}
 
 /* icons */
 
-a {
+.icon {
     margin-right: 20px;
     margin-left: 0px;
     margin-bottom: 40px;
@@ -148,15 +148,15 @@ a {
     color: white;
     transition: 0.1s;
 }
-a:hover {
+.icon:hover {
     color: rgb(155, 89, 182);
     transform: scale(1.1);
     cursor: pointer;
 }
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
+.icon:link { text-decoration: none; }
+.icon:visited { text-decoration: none; }
+.icon:hover { text-decoration: none; }
+.icon:active { text-decoration: none; }
 
 /* gradient and grain */
 

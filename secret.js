@@ -2,6 +2,7 @@ let music = document.getElementById('music')
 let video = document.getElementById('secret-video');
 let systemdTime = 1000;
 let videoLoaded = false;
+let blinkInterval;
 
 // FULLSCREEN
 var elem = document.documentElement;
@@ -14,7 +15,6 @@ function openFullscreen() {
     elem.msRequestFullscreen();
   }
 }
-
 function closeFullscreen() {
   if (document.exitFullscreen) {
     document.exitFullscreen();
@@ -31,9 +31,10 @@ document.addEventListener('fullscreenchange', function() {
     }
 });
 
-let blinkInterval;
 
-function addLines() {
+// PASSCODE PRESSED (modify to prevent confirm/active spam)
+let confirmationTime, systemdContent, systemdContentCopy;
+function addLines() { // fake initsystem text + blinking
   if (systemdContent.length === 0) systemdContent = systemdContentCopy.slice();
   let systemd = document.getElementById("systemd");
   systemd.innerHTML += "<br>" + systemdContent.pop();
@@ -51,8 +52,6 @@ function addLines() {
   }
   systemd.scrollTop = systemd.scrollHeight;
 }
-// PASSCODE PRESSED (modify to prevent confirm/active spam)
-let confirmationTime, systemdContent, systemdContentCopy;
 function confirmation() { // press enter prompt
     openFullscreen();
     fetch('media/random.txt').then(r => r.text()).then(data => {
@@ -93,6 +92,7 @@ function activate() { // enter pressed
     systemd.innerHTML = "";
     document.getElementById("access").style.display = "none";
     document.getElementById("secret-container").style.display = "block";
+    clearInterval(blinkInterval);
 
     let _confirm = document.getElementById('confirm-container');
     _confirm.style.transition = 'opacity 3s ease-out';
@@ -102,25 +102,24 @@ function activate() { // enter pressed
 
 // DESKTOP
 function updateTime() {
-    let date = new Date();
-    
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    hours = hours < 10 ? '0'+hours : hours;
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    
-    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    let day = days[date.getDay()];
-    
-    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let month = months[date.getMonth()];
-    
-    let dateNumber = date.getDate();
-    let ordinal = (dateNumber > 3 && dateNumber < 21) || dateNumber % 10 > 3 ? 'th' : ['st', 'nd', 'rd'][dateNumber % 10 - 1];
-    
-    let year = date.getFullYear();
-    let formattedDate = `${hours}:${minutes} | ${day}, ${month} ${dateNumber}${ordinal} ${year}`;
-    setInterval(updateTime, 1000); // update the time every second
-    document.getElementById("time").textContent = formattedDate;
+  var date = new Date();
+  
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  hours = hours < 10 ? '0'+hours : hours;
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  
+  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var day = days[date.getDay()];
+  
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var month = months[date.getMonth()];
+  
+  var dateNumber = date.getDate();
+  var ordinal = (dateNumber > 3 && dateNumber < 21) || dateNumber % 10 > 3 ? 'th' : ['st', 'nd', 'rd'][dateNumber % 10 - 1];
+  
+  var year = date.getFullYear();
+  var formattedDate = hours + ":" + minutes + " | " + day + ", " + month + " " + dateNumber + ordinal + " " + year;
+  setInterval(updateTime, 1000); // update the time every second
+  document.getElementById("time").textContent = formattedDate;
 }
-
