@@ -54,7 +54,7 @@ function addLines() {
 // PASSCODE PRESSED (modify to prevent confirm/active spam)
 let confirmationTime, systemdContent, systemdContentCopy;
 function confirmation() { // press enter prompt
-    //openFullscreen();
+    openFullscreen();
     fetch('media/random.txt').then(r => r.text()).then(data => {
       systemdContent = data.split("\n").reverse();
       let systemdContentCopy = systemdContent.slice();
