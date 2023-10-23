@@ -7,9 +7,9 @@ Set your whole PC's vibe, including apps, websites and peripherals!
 Compatibility | ~3 days | T - 4 days
 
 
-**Chad POV (2023)**
-chadpov2 | chad pov pixel.png | chad pov.mp4
-https://github.com/rakinishraq/Chad-POV/releases/download/test/ChadPOV.exe
+**Nacho**
+nacho | nacho.png | nacho.mp4
+https://github.com/rakinishraq/Nacho/releases/download/test/Nacho.exe
 radial-gradient(at center bottom, #ff000066, #33ffb180)
 
 Relive your glorious high school days with reimagined classic graphics!

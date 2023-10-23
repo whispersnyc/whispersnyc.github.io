@@ -1,3 +1,4 @@
+// CARD GENERATIO
 let card = " \
 <div class=\"card\">\n\
   <div class=\"card-inner\">\n\
@@ -18,7 +19,6 @@ let card = " \
   </div>\n\
 </div>";
 
-// CARD GENERATION
 function addStyle(rule) {
   let css = document.createElement('style');
   css.type = 'text/css';
@@ -29,9 +29,6 @@ function addStyle(rule) {
 
 var inserted = 0;
 const columns = document.getElementById("columns").children;
-const sourceURL = (location.hostname === "localhost" ||
-  location.hostname === "127.0.0.1" || location.hostname === "")
-  ? "index.md" : 'https://raw.githubusercontent.com/rakinishraq/rakinishraq.github.io/main/index.md';
 fetch("index.md").then(r => r.text()).then(index => {
   index = index.trim().split("\n\n\n");
   for (var line in index) { // source's cards loop
@@ -57,7 +54,7 @@ fetch("index.md").then(r => r.text()).then(index => {
 });
 
 
-// KONAMI CODE (Ehsan Kia)
+// PASSCODE (Ehsan Kia)
 let cursor = 0;
 const PASSCODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 document.addEventListener('keydown', (e) => {
@@ -138,4 +135,3 @@ if (isMobile) {
     element.classList.remove('glow'); // Remove the 'glow' class
   });
 }
-
