@@ -99,6 +99,7 @@ function confirmation() { // press enter prompt
 }
 
 function activate() { // enter pressed
+  $('body').css('overflow', 'hidden');
   updateTime();
   systemd.innerHTML = "";
   document.getElementById("access").style.display = "none";

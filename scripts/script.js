@@ -51,4 +51,19 @@ $.get("cards.md", function(cards) {
     const btn = $("#"+id).parent().find('.card-back .card-grid .link');
     btn.click(function() {window.open(link, '_blank')});
   }
+  
+  // insert last card
+  columns[++inserted % 2 ? 1 : 2].insertAdjacentHTML(
+    "beforeend", " \
+    <div class=\"card\" id=\"this\"> \
+      <div class=\"card-inner-noanim\"> \
+        <div class=\"card-front\"> \
+          <img src=\"media/this2.png\"> \
+        </div> \
+        <div class=\"card-back\"> \
+          This Site! \
+        </div> \
+      </div> \
+    </div>"
+  )
 });

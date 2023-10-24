@@ -43,12 +43,3 @@ rgba(242, 212, 206, 0.5)
 The chillest possible vibe distilled into a website...
 Try the music in the corner!
 Atmosphere | ~3 days | N/A
-
-
-**PLACEHOLDER**
-placeholder1 | placeholder.png | placeholder.mp4
-https://google.com
-#ffeaa750
-
-Placeholder
-Test | Test | Test

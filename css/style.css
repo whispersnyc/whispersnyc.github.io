@@ -96,7 +96,7 @@ a:active {text-decoration: none}
     color: white;
     box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
     font-weight: 700;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .card-back, .card-back::before {background-color: white}
@@ -168,3 +168,10 @@ a:active {text-decoration: none}
     justify-content: center;
 }
   
+#this .card-front {
+    border: 0px solid;
+    opacity: 0.8;
+}
+#this .card-back img {
+    height: 100%;
+}
