@@ -38,9 +38,10 @@ $.get("cards.md", function(cards) {
     // insert html
     columns[clmn].insertAdjacentHTML("beforeend",
       card.replace("%IMG%", img).replace("%ID%", id
-      ).replace("%TXT%", txt).replace("%FOCUS%", focus
-      ).replace("%ALPHA%", alpha.replaceAll(' ', '&nbsp')
-      ).replace("%BETA%", beta.replaceAll(' ', '&nbsp')));
+      ).replace("%TXT%", txt).replace("%FOCUS%",
+      focus.replaceAll(' ', '&nbsp')).replace("%ALPHA%",
+      alpha.replaceAll(' ', '&nbsp')).replace("%BETA%",
+      beta.replaceAll(' ', '&nbsp')));
     
     // add gradient style
     $('head').append($('<style>').prop('type', 'text/css'

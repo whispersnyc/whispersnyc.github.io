@@ -7,7 +7,7 @@ Set your whole PC's vibe, including apps, websites and peripherals!
 Compatibility | ~3 days | T - 4 days
 
 
-**Nacho**
+**Nacho** Mr. Nacho Bro
 nacho | nacho.png | nacho.mp4
 https://github.com/rakinishraq/Nacho/releases/download/test/Nacho.exe
 radial-gradient(at center bottom, #ff000066, #33ffb180)
@@ -17,44 +17,36 @@ This game was started during the '23 GMTK Game Jam.
 Epicness | T - 2 days | N/A
 
 
+**M.E.R.C** Fitness Regimen
+merc | merc.png | merc.mp4
+https://thatkidfrom.nyc/merc
+rgba(82, 60, 190, 0.3)
+
+Paul Wade's no-nonsense workout displayed in an appropriately minimalist website!
+Cost performance | ~1 day | ~3 days
+
+
+**Deviate** Lightspeed editor
+deviate | deviate.png | deviate.mp4
+https://github.com/rakinishraq/deviate
+linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
+
+Paul Wade's no-nonsense workout displayed in an appropriately minimalist website!
+Hotkeys | ~1 day | ~3 days
+
+
+**Portfolio** 2022 Website
+portfolio | portfolio.png | portfolio.mp4
+https://thatkidfrom.nyc/22-Portfolio/
+rgba(242, 212, 206, 0.5)
+
+The chillest possible vibe distilled into a website...
+Try the music in the corner!
+Atmosphere | ~3 days | N/A
+
+
 **PLACEHOLDER**
 placeholder1 | placeholder.png | placeholder.mp4
-https://google.com
-#ffeaa750
-
-Placeholder
-Test | Test | Test
-
-
-**PLACEHOLDER**
-placeholder2 | placeholder.png | placeholder.mp4
-https://google.com
-#ffeaa750
-
-Placeholder
-Test | Test | Test
-
-
-**PLACEHOLDER**
-placeholder3 | placeholder.png | placeholder.mp4
-https://google.com
-#ffeaa750
-
-Placeholder
-Test | Test | Test
-
-
-**PLACEHOLDER**
-placeholder4 | placeholder.png | placeholder.mp4
-https://google.com
-#ffeaa750
-
-Placeholder
-Test | Test | Test
-
-
-**PLACEHOLDER**
-placeholder5 | placeholder.png | placeholder.mp4
 https://google.com
 #ffeaa750
 

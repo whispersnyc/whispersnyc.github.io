@@ -24,7 +24,10 @@ body {
     font-style: italic;
     font-size: 24px;
 }
-p {padding: 5px 0px}
+p {
+    padding: 5px 0px;
+	text-shadow: 0px 1px 4px rgb(60, 56, 120);
+}
 
 
 /* icons */
@@ -38,11 +41,11 @@ p {padding: 5px 0px}
     opacity: 0.5;
     transition: opacity 0.5s;
 }
-.icon:hover { opacity: 1 }
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; cursor: pointer}
-a:active { text-decoration: none; }
+.icon:hover {opacity: 1}
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:hover {text-decoration: none; cursor: pointer}
+a:active {text-decoration: none}
 
 
 /* card and overlays */
@@ -52,6 +55,7 @@ a:active { text-decoration: none; }
     max-width: 100%;
     perspective: 1000px;
     aspect-ratio: 1024 / 768;
+    -webkit-transform: scale(0.95);
     transform: scale(0.95);
     margin-bottom: 30px;
 }
@@ -61,12 +65,14 @@ a:active { text-decoration: none; }
     width: 100%;
     height: 100%;
     text-align: center;
+    -webkit-transition: transform 0.8s;
     transition: transform 0.8s;
     transform-style: preserve-3d;
     cursor: pointer;
 }
 
 .card:hover .card-inner {
+    -webkit-transform: rotateY(180deg) scale(1.1);
     transform: rotateY(180deg) scale(1.1);
 }
 
@@ -95,11 +101,15 @@ a:active { text-decoration: none; }
 
 .card-back, .card-back::before {background-color: white}
 
-.card-back {transform: rotateY(180deg)}
+.card-back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
 
 .glow::before {
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     content: '';
     width: 110%;
@@ -107,6 +117,7 @@ a:active { text-decoration: none; }
     position: absolute;
     z-index: -1;
     filter: blur(20px);
+    -webkit-animation: animate 5s linear infinite;
     animation: animate 5s linear infinite;
 }
 
