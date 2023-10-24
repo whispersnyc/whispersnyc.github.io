@@ -26,14 +26,34 @@ body {
 }
 p {padding: 5px 0px}
 
-/* card and overlay (htwarriors108) */ 
+
+/* icons */
+
+.icon {
+    margin-right: 20px;
+    margin-left: 0px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: white;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+.icon:hover { opacity: 1 }
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; cursor: pointer}
+a:active { text-decoration: none; }
+
+
+/* card and overlays */
+
 .card {
     background-color: transparent;
     max-width: 100%;
     perspective: 1000px;
     aspect-ratio: 1024 / 768;
     transform: scale(0.95);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .card-inner {
@@ -137,67 +157,3 @@ p {padding: 5px 0px}
     justify-content: center;
 }
   
-
-/* icons */
-
-.icon {
-    margin-right: 20px;
-    margin-left: 0px;
-    margin-bottom: 40px;
-    font-size: 24px;
-    color: white;
-    transition: 0.1s;
-}
-.icon:hover {
-    color: rgb(155, 89, 182);
-    transform: scale(1.1);
-}
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; cursor: pointer}
-a:active { text-decoration: none; }
-
-/* gradient and grain */
-
-:root {
-    --gradient-opacity: 0.3;
-    --gradient-x: 0%;
-    --gradient-y: 50%;
-}
-
-#grain-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -2;
-    background-color: rgba(153, 162, 255, var(--gradient-opacity));
-    background-image: 
-        radial-gradient(at calc(37% + var(--gradient-x)) calc(71% + var(--gradient-y)), hsla(284,91%,61%,var(--gradient-opacity1)) 0px, transparent 50%),
-        radial-gradient(at calc(83% + var(--gradient-x)) calc(3% + var(--gradient-y)), hsla(328,83%,66%,var(--gradient-opacity2)) 0px, transparent 50%),
-        radial-gradient(at calc(38% + var(--gradient-x)) calc(42% + var(--gradient-y)), hsla(213,89%,70%,var(--gradient-opacity1)) 0px, transparent 50%),
-        radial-gradient(at calc(7% + var(--gradient-x)) calc(51% + var(--gradient-y)), hsla(279,71%,79%,var(--gradient-opacity2)) 0px, transparent 50%),
-        radial-gradient(at calc(72% + var(--gradient-x)) calc(4% + var(--gradient-y)), hsla(141,83%,60%,var(--gradient-opacity1)) 0px, transparent 50%),
-        radial-gradient(at calc(75% + var(--gradient-x)) calc(6% + var(--gradient-y)), hsla(245,60%,66%,var(--gradient-opacity2)) 0px, transparent 50%),
-        radial-gradient(at calc(24% + var(--gradient-x)) calc(53% + var(--gradient-y)), hsla(59,73%,71%,var(--gradient-opacity1)) 0px, transparent 50%);
-}
-
-#grain {
-    pointer-events: none;
-    height: 100vh;
-}
-
-/* optimization */
-
-.disable-animations {
-    animation: none !important;
-    transition: none !important;
-}
-
-.disable-blur {
-    filter: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-

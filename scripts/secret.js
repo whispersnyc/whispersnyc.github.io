@@ -1,11 +1,21 @@
-let music = document.getElementById('music')
-let video = document.getElementById('secret-video');
+// PASSCODE (Ehsan Kia)
+let cursor = 0;
+const PASSCODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+  'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+document.addEventListener('keydown', (e) => {
+  cursor = (e.key === PASSCODE[cursor]) ? cursor + 1 : 0;
+  if (cursor === PASSCODE.length) confirmation();
+});
+
+
+let music = $('#music')[0];
+let video = $('#secret-video')[0];
 let systemdTime = 1000;
 let videoLoaded = false;
 let blinkInterval;
 
 // FULLSCREEN
-var elem = document.documentElement;
+let elem = document.documentElement;
 function openFullscreen() {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
@@ -24,7 +34,7 @@ function closeFullscreen() {
     document.msExitFullscreen();
   }
 }
-document.addEventListener('fullscreenchange', function() {
+$(document).on('fullscreenchange', function() {
     if (!document.fullscreenElement) {
         music.pause();
         location.reload();
@@ -36,23 +46,24 @@ document.addEventListener('fullscreenchange', function() {
 let confirmationTime, systemdContent, systemdContentCopy;
 function addLines() { // fake initsystem text + blinking
   if (systemdContent.length === 0) systemdContent = systemdContentCopy.slice();
-  let systemd = document.getElementById("systemd");
-  systemd.innerHTML += "<br>" + systemdContent.pop();
+  let systemd = $("#systemd");
+  systemd.append("<br>" + systemdContent.pop());
   if (!videoLoaded) setTimeout(addLines, Math.random() * 10);
   else {
-    systemd.innerHTML += "<br>Press enter to complete (y/n) > y";
+    systemd.append("<br>Press enter to complete (y/n) > y");
     if (blinkInterval) clearInterval(blinkInterval);
     blinkInterval = setInterval(function() {
-      if (systemd.innerHTML.endsWith("█")) {
-        systemd.innerHTML = systemd.innerHTML.slice(0, -1);
+      if (systemd.html().endsWith("█")) {
+        systemd.html(systemd.html().slice(0, -1));
       } else {
-        systemd.innerHTML += "█";
+        systemd.append("█");
       }
     }, 500); // Blink every 500 milliseconds
   }
-  systemd.scrollTop = systemd.scrollHeight;
+  systemd.scrollTop(systemd.prop("scrollHeight"));
 }
 function confirmation() { // press enter prompt
+    optimize();
     openFullscreen();
     fetch('media/random.txt').then(r => r.text()).then(data => {
       systemdContent = data.split("\n").reverse();
