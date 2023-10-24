@@ -35,10 +35,10 @@ function closeFullscreen() {
   }
 }
 $(document).on('fullscreenchange', function() {
-    if (!document.fullscreenElement) {
-        music.pause();
-        location.reload();
-    }
+  if (!document.fullscreenElement) {
+    music.pause();
+    location.reload();
+  }
 });
 
 
@@ -63,52 +63,52 @@ function addLines() { // fake initsystem text + blinking
   systemd.scrollTop(systemd.prop("scrollHeight"));
 }
 function confirmation() { // press enter prompt
-    optimize();
-    openFullscreen();
-    fetch('media/random.txt').then(r => r.text()).then(data => {
-      systemdContent = data.split("\n").reverse();
-      let systemdContentCopy = systemdContent.slice();
-      confirmationTime = Date.now();
-      music.load();
-      video.load();
-      cursor = 0;
-      document.getElementById("secret-src").src = "media/city.mp4"
-      document.getElementById("secret-container").style.visibility = "visible";
-      document.getElementById("confirm-container").style.visibility = "visible";
-      let checkInterval = setInterval(function() {
-        if (video.readyState === 4 && // if video ready and N time elapsed
-            Date.now() - confirmationTime > systemdTime) {
-          clearInterval(checkInterval);
-          window.addEventListener('keydown', function(event) {
-              if (event.key === 'Enter') {
-                document.getElementById("access").style.display = "block";
-                setTimeout(activate, 2000);
-                if (systemd.innerHTML.endsWith("█"))
-                  systemd.innerHTML = systemd.innerHTML.slice(0, -1);
-                systemd.innerHTML += "<br><wbr>"
-                systemd.scrollTop = systemd.scrollHeight;
-                music.volume = 0.3;
-                music.play();
-              }
-          })
-          videoLoaded = true;
-        }
-      }, 100);
-      addLines(0);
-    });
+  optimize();
+  openFullscreen();
+  fetch('media/random.txt').then(r => r.text()).then(data => {
+    systemdContent = data.split("\n").reverse();
+    let systemdContentCopy = systemdContent.slice();
+    confirmationTime = Date.now();
+    music.load();
+    video.load();
+    cursor = 0;
+    document.getElementById("secret-src").src = "media/city.mp4"
+    document.getElementById("secret-container").style.visibility = "visible";
+    document.getElementById("confirm-container").style.visibility = "visible";
+    let checkInterval = setInterval(function() {
+      if (video.readyState === 4 && // if video ready and N time elapsed
+          Date.now() - confirmationTime > systemdTime) {
+        clearInterval(checkInterval);
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+              document.getElementById("access").style.display = "block";
+              setTimeout(activate, 2000);
+              if (systemd.innerHTML.endsWith("█"))
+                systemd.innerHTML = systemd.innerHTML.slice(0, -1);
+              systemd.innerHTML += "<br><wbr>"
+              systemd.scrollTop = systemd.scrollHeight;
+              music.volume = 0.3;
+              music.play();
+            }
+        })
+        videoLoaded = true;
+      }
+    }, 100);
+    addLines(0);
+  });
 }
 
 function activate() { // enter pressed
-    updateTime();
-    systemd.innerHTML = "";
-    document.getElementById("access").style.display = "none";
-    document.getElementById("secret-container").style.display = "block";
-    clearInterval(blinkInterval);
+  updateTime();
+  systemd.innerHTML = "";
+  document.getElementById("access").style.display = "none";
+  document.getElementById("secret-container").style.display = "block";
+  clearInterval(blinkInterval);
 
-    let _confirm = document.getElementById('confirm-container');
-    _confirm.style.transition = 'opacity 3s ease-out';
-    _confirm.style.opacity = '0';
-    _confirm.style.pointerEvents = "none";
+  let _confirm = document.getElementById('confirm-container');
+  _confirm.style.transition = 'opacity 3s ease-out';
+  _confirm.style.opacity = '0';
+  _confirm.style.pointerEvents = "none";
 }
 
 // DESKTOP

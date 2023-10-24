@@ -30,41 +30,41 @@ let targetOpacity1 = 0.3; let targetOpacity2 = 0.3;
 
 // GRADIENT
 const updateGradient = () => {
-    const element = $('html')[0];
-    currentX = lerp(currentX, targetX, move_speed);
-    currentY = lerp(currentY, targetY, move_speed);
+  const element = $('html')[0];
+  currentX = lerp(currentX, targetX, move_speed);
+  currentY = lerp(currentY, targetY, move_speed);
 
-    currentOpacity1 = lerp(currentOpacity1, targetOpacity1, flicker_speed);
-    currentOpacity2 = lerp(currentOpacity2, targetOpacity2, flicker_speed);
-    if (Math.abs(currentOpacity1 - targetOpacity1) < 0.01)
-        targetOpacity1 = randomBetween(flicker_start, flicker_end);
-    if (Math.abs(currentOpacity2 - targetOpacity2) < 0.01)
-        targetOpacity2 = randomBetween(flicker_start, flicker_end);
+  currentOpacity1 = lerp(currentOpacity1, targetOpacity1, flicker_speed);
+  currentOpacity2 = lerp(currentOpacity2, targetOpacity2, flicker_speed);
+  if (Math.abs(currentOpacity1 - targetOpacity1) < 0.01)
+      targetOpacity1 = randomBetween(flicker_start, flicker_end);
+  if (Math.abs(currentOpacity2 - targetOpacity2) < 0.01)
+      targetOpacity2 = randomBetween(flicker_start, flicker_end);
 
-    $(element).css('--gradient-x', `${currentX}%`);
-    $(element).css('--gradient-y', `${currentY}%`);
-    $(element).css('--gradient-opacity1', `${currentOpacity1}`);
-    $(element).css('--gradient-opacity2', `${currentOpacity2}`);
-    if (!freeze_gradient) requestAnimationFrame(updateGradient);
+  $(element).css('--gradient-x', `${currentX}%`);
+  $(element).css('--gradient-y', `${currentY}%`);
+  $(element).css('--gradient-opacity1', `${currentOpacity1}`);
+  $(element).css('--gradient-opacity2', `${currentOpacity2}`);
+  if (!freeze_gradient) requestAnimationFrame(updateGradient);
 }
 
 $(document).on('mousemove', (e) => {
-    const influence = 5;
-    targetX = ((e.clientX / window.innerWidth) * 2.0 - 1.0) * influence;
-    targetY = ((e.clientY / window.innerHeight) * 2.0 - 1.0) * influence;
+  const influence = 5;
+  targetX = ((e.clientX / window.innerWidth) * 2.0 - 1.0) * influence;
+  targetY = ((e.clientY / window.innerHeight) * 2.0 - 1.0) * influence;
 });
 
 
 function optimize() {
-    freeze_gradient = true;
-    grained("#grain", {"animate": false, "grainOpacity": 0});
-    $('.optimize').each(function() {
-        if (disableAnimations) $(this).addClass('disable-animations');
-        if (disableBlur) $(this).addClass('disable-blur');
-        $(this).removeClass('glow');
-    });
+  freeze_gradient = true;
+  grained("#grain", {"animate": false, "grainOpacity": 0});
+  $('.optimize').each(function() {
+      if (disableAnimations) $(this).addClass('disable-animations');
+      if (disableBlur) $(this).addClass('disable-blur');
+      $(this).removeClass('glow');
+  });
 }
 
-updateGradient();
-if (isMobile) optimize();
 if (!isMobile || !disableGrain) grained("#grain", grainOptions);
+if (isMobile) optimize();
+updateGradient();
