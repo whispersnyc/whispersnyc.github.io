@@ -68,3 +68,19 @@ function optimize() {
 if (!isMobile || !disableGrain) grained("#grain", grainOptions);
 if (isMobile) optimize();
 updateGradient();
+
+// OPTIMIZE OPTION
+if (!isMobile) {
+  $('#para').append('<br><br><span id="extra-text"><p>This page has lots of subtle effects so if your device is lagging, <a href="#" id="optimize-link">click me to disable them</a>.</p></span>');
+}
+
+$('#optimize-link').click(function(e) {
+  e.preventDefault();
+  optimize();
+  $('#extra-text').html('<p>If you want to re-enable them, <a href="#" id="refresh-link">click me or refresh</a>.</p>');
+});
+
+$(document).on('click', '#refresh-link', function(e) {
+  e.preventDefault();
+  location.reload();
+});

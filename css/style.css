@@ -24,7 +24,7 @@ body {
     font-style: italic;
     font-size: 24px;
 }
-p {
+#para {
     padding: 5px 0px;
 	text-shadow: 0px 1px 4px rgb(60, 56, 120);
 }

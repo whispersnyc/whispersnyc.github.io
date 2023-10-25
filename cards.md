@@ -26,13 +26,13 @@ Paul Wade's no-nonsense workout displayed in an appropriately minimalist website
 Cost performance | ~1 day | ~3 days
 
 
-**Deviate** Lightspeed editor
-deviate | deviate.png | deviate.mp4
-https://github.com/rakinishraq/deviate
-linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
+**Pulse Effect** VR Drums
+pulseeffect | pulseeffect.png | pulseeffect.mp4
+https://github.com/rakinishraq/
+#00ff0055
 
-Paul Wade's no-nonsense workout displayed in an appropriately minimalist website!
-Hotkeys | ~1 day | ~3 days
+Learn the drums in VR with guiding notes Beat Saber style!
+Practicality | ~2 days | N/A
 
 
 **Portfolio** 2022 Website
@@ -43,3 +43,12 @@ rgba(242, 212, 206, 0.5)
 The chillest possible vibe distilled into a website...
 Try the music in the corner!
 Atmosphere | ~3 days | N/A
+
+
+**Deviate** Lightspeed editor
+deviate | placeholder.png | deviate.mp4
+https://github.com/rakinishraq/deviate
+linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
+
+Keyboard-based video clipper with Valorant kill detection
+Hotkeys | ~1 day | ~3 days

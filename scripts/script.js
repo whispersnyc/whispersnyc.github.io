@@ -53,7 +53,8 @@ $.get("cards.md", function(cards) {
   }
   
   // insert last card
-  columns[++inserted % 2 ? 1 : 2].insertAdjacentHTML(
+  if (false)
+    columns[++inserted % 2 ? 1 : 2].insertAdjacentHTML(
     "beforeend", " \
     <div class=\"card\" id=\"this\"> \
       <div class=\"card-inner-noanim\"> \
@@ -61,7 +62,6 @@ $.get("cards.md", function(cards) {
           <img src=\"media/this2.png\"> \
         </div> \
         <div class=\"card-back\"> \
-          This Site! \
         </div> \
       </div> \
     </div>"
