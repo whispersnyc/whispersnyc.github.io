@@ -171,9 +171,22 @@ a:active {text-decoration: none}
 }
   
 #this .card-front {
-    border: 0px solid;
     opacity: 0.8;
 }
-#this .card-back img {
-    height: 100%;
+#this .card-back {
+    background-color: black;
+    z-index: 2;
+}
+#this .card-back .text,
+#this .card-back .link {
+    font-size: 3.5rem;
+    color: white;
+    background-color: black;
+    font-family: 'Cabin Sketch', sans-serif;
+}
+#this .card-back .link {
+    opacity: 0.8;
+}
+body {
+    transition: background-color 1s;
 }

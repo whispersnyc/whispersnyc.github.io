@@ -53,17 +53,30 @@ $.get("cards.md", function(cards) {
   }
   
   // insert last card
-  if (false)
-    columns[++inserted % 2 ? 1 : 2].insertAdjacentHTML(
-    "beforeend", " \
-    <div class=\"card\" id=\"this\"> \
-      <div class=\"card-inner-noanim\"> \
-        <div class=\"card-front\"> \
-          <img src=\"media/this2.png\"> \
-        </div> \
-        <div class=\"card-back\"> \
-        </div> \
+  columns[++inserted % 2 ? 1 : 2].insertAdjacentHTML(
+  "beforeend", " \
+  <div class=\"card\" id=\"this\"> \
+    <div class=\"card-inner\"> \
+      <div class=\"card-front\"> \
+        <img src=\"media/this2.png\"> \
       </div> \
-    </div>"
+      <div class=\"card-back\"> \
+          <div class=\"text\">\
+            But there's more than meets the eye...\
+          </div>\
+          <div class=\"link\">\
+            <i class=\"fa-regular fa-eye\"></i> \
+          </div>\
+      </div> \
+    </div> \
+  </div>"
   )
+  $('#this').find('.link').click(() => {
+    window.open('https://github.com/rakinishraq/rakinishraq.github.io',
+    '_blank');
+  });
+  $('#this').hover(
+    function() {$('body').css('background-color', 'black')},
+    function() {$('body').css('background-color', '')}
+  );
 });

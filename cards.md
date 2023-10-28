@@ -29,10 +29,28 @@ Cost performance | ~1 day | ~3 days
 **Pulse Effect** VR Drums
 pulseeffect | pulseeffect.png | pulseeffect.mp4
 https://github.com/rakinishraq/
-#00ff0055
+rgba(0, 239, 243, 0.5)
 
 Learn the drums in VR with guiding notes Beat Saber style!
 Practicality | ~2 days | N/A
+
+
+**Deviate** Lightspeed editor
+deviate | deviate.png | deviate.mp4
+https://github.com/rakinishraq/deviate
+linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
+
+Keyboard-based video clipper with Valorant kill detection
+Hotkeys | ~1 day | ~3 days
+
+
+**Paper Plane**
+paperplane | paperplane.png | paperplane.mp4
+https://thatkidfrom.nyc/PaperPlane/
+rgba(157, 246, 227, 0.7)
+
+My 2020 Flappy Bird clone made under a 2 hour time limit!
+Speedrun | < 2hrs | N/A
 
 
 **Portfolio** 2022 Website
@@ -44,12 +62,3 @@ The chillest possible vibe distilled into a website.
 Try the music in the top-right corner!
 This was my best concept portfolio site from last year.
 Atmosphere | ~3 days | N/A
-
-
-**Deviate** Lightspeed editor
-deviate | placeholder.png | deviate.mp4
-https://github.com/rakinishraq/deviate
-linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
-
-Keyboard-based video clipper with Valorant kill detection
-Hotkeys | ~1 day | ~3 days
