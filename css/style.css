@@ -47,6 +47,8 @@ a:visited {text-decoration: none}
 a:hover {text-decoration: none; cursor: pointer}
 a:active {text-decoration: none}
 
+#refresh-link, #optimize-link {text-decoration: underline}
+
 
 /* card and overlays */
 

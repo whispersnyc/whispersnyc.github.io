@@ -9,7 +9,7 @@ Compatibility | ~3 days | T - 4 days
 
 **Nacho** Mr. Nacho Bro
 nacho | nacho.png | nacho.mp4
-https://github.com/rakinishraq/Nacho/releases/download/test/Nacho.exe
+https://github.com/rakinishraq/Nacho/releases/download/v0.2.0-alpha/Nacho.exe
 radial-gradient(at center bottom, #ff000066, #33ffb180)
 
 Relive your glorious high school days with reimagined classic graphics!
@@ -40,8 +40,9 @@ portfolio | portfolio.png | portfolio.mp4
 https://thatkidfrom.nyc/22-Portfolio/
 rgba(242, 212, 206, 0.5)
 
-The chillest possible vibe distilled into a website...
-Try the music in the corner!
+The chillest possible vibe distilled into a website.
+Try the music in the top-right corner!
+This was my best concept portfolio site from last year.
 Atmosphere | ~3 days | N/A
 
 

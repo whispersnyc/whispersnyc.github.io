@@ -77,7 +77,8 @@ if (!isMobile) {
 $('#optimize-link').click(function(e) {
   e.preventDefault();
   optimize();
-  $('#extra-text').html('<p>If you want to re-enable them, <a href="#" id="refresh-link">click me or refresh</a>.</p>');
+  $('#extra-text').html('<p>If you want to re-enable them, \
+  <a href="#" id="refresh-link">click me or refresh</a>.</p>');
 });
 
 $(document).on('click', '#refresh-link', function(e) {
