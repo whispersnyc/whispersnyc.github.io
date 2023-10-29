@@ -34,12 +34,6 @@ function closeFullscreen() {
     document.msExitFullscreen();
   }
 }
-$(document).on('fullscreenchange', function() {
-  if (!document.fullscreenElement) {
-    music.pause();
-    location.reload();
-  }
-});
 
 
 // PASSCODE PRESSED (modify to prevent confirm/active spam)
@@ -63,6 +57,14 @@ function addLines() { // fake initsystem text + blinking
   systemd.scrollTop(systemd.prop("scrollHeight"));
 }
 function confirmation() { // press enter prompt
+  // quit if exit fullscreen
+  $(document).on('fullscreenchange', function() {
+    if (!document.fullscreenElement) {
+      music.pause();
+      location.reload();
+    }
+  });
+
   optimize();
   openFullscreen();
   fetch('media/random.txt').then(r => r.text()).then(data => {

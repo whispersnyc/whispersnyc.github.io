@@ -5,7 +5,12 @@ let card = " \
     <div class=\"card-front optimize glow\" id=\"%ID%\"><img src=\"media/%IMG%\"></div>\n\
     <div class=\"card-back\">\n\
       <div class=\"card-grid\">\n\
-        <div class=\"video\"><i class=\"fa-solid fa-play\"></i></div>\n\
+        <div class=\"video\" onclick=\"play(this)\">\n\
+          <video class=\"card-video\">\n\
+            <source src=\"media/%VID%\" type=\"video/mp4\" onclick=\"full()\">\n\
+          </video>\n\
+          <i class=\"fa-solid fa-play\"></i>\n\
+        </div>\n\
         <div class=\"text\">\n\
           %TXT%<br><br>\n\
           <em>Focus:</em> %FOCUS%<br>\n\
@@ -18,6 +23,7 @@ let card = " \
     </div>\n\
   </div>\n\
 </div>";
+
 
 var inserted = 0;
 const columns = $("#columns").children();
@@ -41,8 +47,8 @@ $.get("cards.md", function(cards) {
       ).replace("%TXT%", txt).replace("%FOCUS%",
       focus.replaceAll(' ', '&nbsp')).replace("%ALPHA%",
       alpha.replaceAll(' ', '&nbsp')).replace("%BETA%",
-      beta.replaceAll(' ', '&nbsp')));
-    
+      beta.replaceAll(' ', '&nbsp')).replace("%VID%", vid));
+
     // add gradient style
     $('head').append($('<style>').prop('type', 'text/css'
       ).html('#'+id+"::before {background: "+bg+'}'));
@@ -71,12 +77,45 @@ $.get("cards.md", function(cards) {
     </div> \
   </div>"
   )
-  $('#this').find('.link').click(() => {
+  $('#this').find('.link').click(() => { // last card link
     window.open('https://github.com/rakinishraq/rakinishraq.github.io',
     '_blank');
   });
-  $('#this').hover(
+  $('#this').hover( // last card hover darken effect
     function() {$('body').css('background-color', 'black')},
     function() {$('body').css('background-color', '')}
   );
 });
+
+// play video
+function play(div) {
+  // enter fullscreen, full opacity, play video and "fit" mode
+  const video = $(div).find('.card-video')[0];
+  const originalOpacity = $(video).css('opacity');
+  video.requestFullscreen();
+  $(video).css('opacity', 1);
+  video.play();
+  $(video).css('object-fit', 'contain');
+
+  // exit fullscreen if video done
+  video.addEventListener('ended', () => {closeFullscreen()});
+
+  // if exited fullscreen, pause and revert fullscreen
+  $(document).on('fullscreenchange', function exitHandler() {
+    if (!document.fullscreenElement) {
+      video.pause();
+      $(document).off('fullscreenchange', exitHandler);
+      $(video).css('opacity', originalOpacity);
+      $(video).css('object-fit', 'cover');
+    }
+  });
+
+  // if paused, exit fullscreen pause and revert properties
+  $(video).on('click', function() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+      $(video).css('opacity', originalOpacity);
+      $(video).css('object-fit', 'cover');
+    }
+  });
+}
