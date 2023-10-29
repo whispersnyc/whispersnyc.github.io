@@ -41,7 +41,7 @@ $.get("cards.md", function(cards) {
     const txt = cardInfo.slice(5).join("<br>");
     const clmn = ++inserted % 2 ? 1 : 2;
 
-    // insert html
+    // insert html (highly compatible version)
     columns[clmn].insertAdjacentHTML("beforeend",
       card.replace("%IMG%", img).replace("%ID%", id
       ).replace("%TXT%", txt).replace("%FOCUS%",
@@ -82,11 +82,15 @@ $.get("cards.md", function(cards) {
     </div> \
   </div>"
   )
-  $('#this').find('.link').click(() => { // last card link
+
+  // last card link
+  $('#this').find('.link').click(() => {
     window.open('https://github.com/rakinishraq/rakinishraq.github.io',
     '_blank');
   });
-  $('#this').hover( // last card hover darken effect
+
+  // last card hover darken effect
+  $('#this').hover( 
     function() {$('body').css('background-color', 'black')},
     function() {$('body').css('background-color', '')}
   );
@@ -94,57 +98,3 @@ $.get("cards.md", function(cards) {
   // optimize for mobile after cards are loaded
   if (isMobile) optimize();
 });
-
-// play video
-let message_shown = false;
-function play(div) {
-  // show instructions first time
-  if (!message_shown) {
-    const message = $('<div>').addClass('message').text('Click anywhere to exit.');
-    $(div).append(message);
-    setTimeout(() => {
-      message.remove();
-    }, 2000);
-    message_shown = true;
-  }
-
-  // enter fullscreen, full opacity, play video and "fit" mode
-  const video = $(div).find('.card-video')[0];
-  const originalOpacity = $(video).css('opacity');
-  const originalBg = video.parentElement.style.backgroundColor; // store original background color
-  const icon = $(div).find('.fa-solid')[0]; // get icon element
-  $(icon).hide(); // hide icon
-  video.parentElement.requestFullscreen();
-  $(video).css('opacity', 1);
-  video.play();
-  $(video).css('object-fit', 'contain');
-  video.parentElement.style.backgroundColor = 'black';
-  video.volume = 0.4;
-
-  // exit fullscreen if video done
-  video.addEventListener('ended', () => {closeFullscreen()} );
-
-  // if exited fullscreen, pause and revert fullscreen
-  $(document).on('fullscreenchange', function exitHandler() {
-    if (!document.fullscreenElement) {
-      video.pause();
-      $(document).off('fullscreenchange', exitHandler);
-      $(video).css('opacity', originalOpacity);
-      $(video).css('object-fit', 'cover');
-      video.parentElement.style.backgroundColor = originalBg;
-      $(icon).show();
-    }
-  });
-
-
-  // if paused, exit fullscreen pause and revert properties
-  $(video).on('click', function() {
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-      $(video).css('opacity', originalOpacity);
-      $(video).css('object-fit', 'cover');
-      video.parentElement.style.backgroundColor = originalBg;
-      $(icon).show();
-    }
-  });
-}
