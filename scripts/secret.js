@@ -2,8 +2,15 @@
 let cursor = 0;
 const PASSCODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
   'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
 document.addEventListener('keydown', (e) => {
+  // prevent code entry in fullscreen video
+  if (document.fullscreenElement) return;
+
+  // advance cursor if key pressed
   cursor = (e.key === PASSCODE[cursor]) ? cursor + 1 : 0;
+
+  // if reached end, show #systemd
   if (cursor === PASSCODE.length) confirmation();
 });
 
