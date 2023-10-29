@@ -42,7 +42,7 @@ https://github.com/rakinishraq/deviate
 linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
 
 Keyboard-based video clipper with Valorant kill detection
-Hotkeys | ~1 day | ~3 days
+Hotkeys | < 5 days | N/A
 
 
 **Paper Plane**

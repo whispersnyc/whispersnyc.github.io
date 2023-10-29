@@ -1,11 +1,11 @@
 ## Credits
 
-(htwarriors' card glow/flip)[https://uiverse.io/htwarriors108/tasty-stingray-56]
+- [htwarriors' card glow/flip](https://uiverse.io/htwarriors108/tasty-stingray-56)
 
-(Ehsan Kia's compact konami)[https://stackoverflow.com/questions/31626852/how-to-add-konami-code-in-a-website-based-on-html]
+- [Ehsan Kia's compact passcode](https://stackoverflow.com/questions/31626852/how-to-add-konami-code-in-a-website-based-on-html)
 
-(LEMMiNO's Firecracker track)[https://soundcloud.com/lemmino/firecracker]
+- [LEMMiNO's Firecracker music](https://soundcloud.com/lemmino/firecracker)
 
-Krystal Spears font
+- [Krysttal Spears font by Maulana Creative](https://www.dafont.com/krysttal-spears.font)
 
-"This Website" font by NACreative on Freepik
+- [Action Jackson font by Divide By Zero](https://www.1001fonts.com/action-jackson-font.html)

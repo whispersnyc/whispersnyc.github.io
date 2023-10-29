@@ -96,25 +96,33 @@ $.get("cards.md", function(cards) {
 });
 
 // play video
-message_shown = false;
+let message_shown = false;
 function play(div) {
-  // show exit instruction on first run
+  // show instructions first time
   if (!message_shown) {
-    alert("Click anywhere to pause and exit.");
+    const message = $('<div>').addClass('message').text('Click anywhere to exit.');
+    $(div).append(message);
+    setTimeout(() => {
+      message.remove();
+    }, 2000);
     message_shown = true;
   }
 
   // enter fullscreen, full opacity, play video and "fit" mode
   const video = $(div).find('.card-video')[0];
   const originalOpacity = $(video).css('opacity');
-  video.requestFullscreen();
+  const originalBg = video.parentElement.style.backgroundColor; // store original background color
+  const icon = $(div).find('.fa-solid')[0]; // get icon element
+  $(icon).hide(); // hide icon
+  video.parentElement.requestFullscreen();
   $(video).css('opacity', 1);
   video.play();
   $(video).css('object-fit', 'contain');
+  video.parentElement.style.backgroundColor = 'black';
   video.volume = 0.4;
 
   // exit fullscreen if video done
-  video.addEventListener('ended', () => {closeFullscreen()});
+  video.addEventListener('ended', () => {closeFullscreen()} );
 
   // if exited fullscreen, pause and revert fullscreen
   $(document).on('fullscreenchange', function exitHandler() {
@@ -123,8 +131,11 @@ function play(div) {
       $(document).off('fullscreenchange', exitHandler);
       $(video).css('opacity', originalOpacity);
       $(video).css('object-fit', 'cover');
+      video.parentElement.style.backgroundColor = originalBg;
+      $(icon).show();
     }
   });
+
 
   // if paused, exit fullscreen pause and revert properties
   $(video).on('click', function() {
@@ -132,6 +143,8 @@ function play(div) {
       document.exitFullscreen();
       $(video).css('opacity', originalOpacity);
       $(video).css('object-fit', 'cover');
+      video.parentElement.style.backgroundColor = originalBg;
+      $(icon).show();
     }
   });
 }
