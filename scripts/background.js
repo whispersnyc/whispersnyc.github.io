@@ -66,7 +66,6 @@ function optimize() {
 }
 
 if (!isMobile || !disableGrain) grained("#grain", grainOptions);
-if (isMobile) optimize();
 updateGradient();
 
 // OPTIMIZE OPTION

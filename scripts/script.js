@@ -85,6 +85,9 @@ $.get("cards.md", function(cards) {
     function() {$('body').css('background-color', 'black')},
     function() {$('body').css('background-color', '')}
   );
+  
+  // optimize for mobile after cards are loaded
+  if (isMobile) optimize();
 });
 
 // play video
