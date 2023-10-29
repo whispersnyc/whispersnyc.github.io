@@ -49,6 +49,7 @@ function play(div) {
   // enter fullscreen, full opacity, play video and "fit" mode
   $(icon).hide();
   video.parentElement.requestFullscreen();
+  openFullscreen(video.parentElement);
   $(video).css('opacity', 1);
   video.play();
   $(video).css('object-fit', 'contain');
