@@ -22,13 +22,14 @@ merc | merc.png | merc.mp4
 https://thatkidfrom.nyc/merc
 rgba(82, 60, 190, 0.3)
 
-Paul Wade's no-nonsense workout displayed in an appropriately minimalist website! This is an updated 2021 project.
+Paul Wade's no-nonsense workout displayed in an appropriately minimalist website!
+This is an updated 2021 project.
 Cost performance | < 2 days | ~3 days
 
 
 **Pulse Effect** VR Drums
 pulseeffect | pulseeffect.png | pulseeffect.mp4
-https://github.com/rakinishraq/
+N/A
 rgba(0, 239, 243, 0.5)
 
 Learn the drums in VR with guiding notes Beat Saber style!
@@ -36,7 +37,7 @@ Practicality | ~2 days | N/A
 
 
 **Deviate** Lightspeed editor
-deviate | deviate.png | deviate.mp4
+deviate | deviate.png | placeholder.mp4
 https://github.com/rakinishraq/deviate
 linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
 

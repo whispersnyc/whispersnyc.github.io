@@ -54,8 +54,13 @@ $.get("cards.md", function(cards) {
       ).html('#'+id+"::before {background: "+bg+'}'));
     
     // add link
-    const btn = $("#"+id).parent().find('.card-back .card-grid .link');
-    btn.click(function() {window.open(link, '_blank')});
+    const btn = $("#"+id).parent().find('.link');
+    if (link != "N/A") {
+      btn.click(function() {window.open(link, '_blank')});
+    } else {
+      btn.find('i').attr("class", "fa-regular fa-clock");
+      btn.addClass("nopointer");
+    }
   }
   
   // insert last card
@@ -91,7 +96,14 @@ $.get("cards.md", function(cards) {
 });
 
 // play video
+message_shown = false;
 function play(div) {
+  // show exit instruction on first run
+  if (!message_shown) {
+    alert("Click anywhere to pause and exit.");
+    message_shown = true;
+  }
+
   // enter fullscreen, full opacity, play video and "fit" mode
   const video = $(div).find('.card-video')[0];
   const originalOpacity = $(video).css('opacity');
@@ -99,6 +111,7 @@ function play(div) {
   $(video).css('opacity', 1);
   video.play();
   $(video).css('object-fit', 'contain');
+  video.volume = 0.4;
 
   // exit fullscreen if video done
   video.addEventListener('ended', () => {closeFullscreen()});
