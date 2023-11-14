@@ -6,7 +6,7 @@ let card = " \
     <div class=\"card-back\">\n\
       <div class=\"card-grid\">\n\
         <div class=\"video\" onclick=\"play(this)\">\n\
-          <video class=\"card-video\">\n\
+          <video muted class=\"card-video\">\n\
             <source src=\"media/%VID%\" type=\"video/mp4\" onclick=\"full()\">\n\
           </video>\n\
           <i class=\"fa-solid fa-play\"></i>\n\
@@ -95,6 +95,11 @@ $.get("cards.md", function(cards) {
     function() {$('body').css('background-color', '')}
   );
   
+  // save original values
+  const $video = $('video').first()
+  originalOpacity = $video.css('opacity');
+  originalBg = $video.parent().css('background-color');
+
   // optimize for mobile after cards are loaded
   if (isMobile) optimize();
 });

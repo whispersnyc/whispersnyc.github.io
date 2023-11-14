@@ -41,10 +41,10 @@ const updateGradient = () => {
   if (Math.abs(currentOpacity2 - targetOpacity2) < 0.01)
       targetOpacity2 = randomBetween(flicker_start, flicker_end);
 
-  $(element).css('--gradient-x', `${currentX}%`);
-  $(element).css('--gradient-y', `${currentY}%`);
-  $(element).css('--gradient-opacity1', `${currentOpacity1}`);
-  $(element).css('--gradient-opacity2', `${currentOpacity2}`);
+  $(element).css('--gradient-x', currentX + '%');
+  $(element).css('--gradient-y', currentY + '%');
+  $(element).css('--gradient-opacity1', currentOpacity1);
+  $(element).css('--gradient-opacity2', currentOpacity2);
   if (!freeze_gradient) requestAnimationFrame(updateGradient);
 }
 

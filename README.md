@@ -9,3 +9,14 @@
 - [Krysttal Spears font by Maulana Creative](https://www.dafont.com/krysttal-spears.font)
 
 - [Action Jackson font by Divide By Zero](https://www.1001fonts.com/action-jackson-font.html)
+
+
+## Todo
+
+- openFullscreen
+    - rename startFullscreen
+    - vs jQuery fullscreen api compatibility
+    - use where applicable
+    - .apply(null, arguments) to forward argument
+
+- apply `bla = $("#bla")[0]` and `$bla = $("#bla").first()` where applicable

@@ -33,7 +33,7 @@ N/A
 rgba(0, 239, 243, 0.5)
 
 Learn the drums in VR with guiding notes Beat Saber style!
-Practicality | ~2 days | N/A
+Practicality | ~3 days | N hrs
 
 
 **Deviate** Lightspeed editor
