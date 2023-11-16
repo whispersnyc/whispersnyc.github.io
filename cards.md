@@ -33,6 +33,7 @@ https://github.com/rakinishraq/fever-gpt#readme
 rgba(49, 51, 56, 0.40)
 
 Set up a simple collaborative ChatGPT with Discord channels/threads!
+Share API access while keeping key and email private!
 - Google searching and summarizing
 - Python execution (ex. for math)
 Accessibility | N days | N/A

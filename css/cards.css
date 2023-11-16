@@ -152,7 +152,9 @@
 }
 #this .card-back .link {
     opacity: 0.8;
+    transition: opacity 0.5s, color 1s;
 }
-body {
-    transition: background-color 1s;
+#this .card-back .link:hover {
+    opacity: 1;
+    color: red;
 }

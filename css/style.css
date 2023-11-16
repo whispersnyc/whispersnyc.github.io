@@ -1,5 +1,6 @@
 /* general */
 
+body { transition: background-color 1s }
 ::selection {
     background: rgb(155, 89, 182);
     color: white;
