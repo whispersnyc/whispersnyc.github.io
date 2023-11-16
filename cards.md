@@ -27,6 +27,29 @@ This game was started during the '23 GMTK Game Jam.
 Epicness | < 5 days | N/A
 
 
+**FeverGPT** Discord GPT-4 with plugins?
+fevergpt | fevergpt.png | placeholder.mp4
+https://github.com/rakinishraq/fever-gpt#readme
+rgba(49, 51, 56, 0.40)
+
+Set up a simple collaborative ChatGPT with Discord channels/threads!
+- Google searching and summarizing
+- Python execution (ex. for math)
+Accessibility | N days | N/A
+
+
+**V-Sekai** Virtual Worlds
+vsekai | vsekai.png | placeholder.mp4 | fa-solid fa-clock
+N/A
+#ff000050
+
+Hoping to help make the FOSS social VR game into the greatest VR experience ever:
+- In-game world editor
+- Realistic animations
+- Vast compatibility
+Ease of use | N/A | N/A
+
+
 **M.E.R.C** Fitness Regimen
 merc | merc.png | merc.mp4
 https://thatkidfrom.nyc/merc
@@ -35,6 +58,15 @@ rgba(82, 60, 190, 0.3)
 Paul Wade's no-nonsense workout displayed in an appropriately minimalist website!
 This is an updated 2021 project.
 Cost performance | < 2 days | ~3 days
+
+
+**Pulse Effect** VR Drums
+pulseeffect | pulseeffect.png | pulseeffect.mp4 | fa-solid fa-clock
+N/A
+rgba(0, 239, 243, 0.5)
+
+Learn the drums in VR with guiding notes Beat Saber style!
+Practicality | ~3 days | N hrs
 
 
 **Portfolio** 2022 Website
@@ -48,18 +80,9 @@ Try the music in the top-right corner!
 Atmosphere | ~4 days | < 7hrs
 
 
-**Pulse Effect** VR Drums
-pulseeffect | pulseeffect.png | pulseeffect.mp4 | fa-solid fa-clock
-N/A
-rgba(0, 239, 243, 0.5)
-
-Learn the drums in VR with guiding notes Beat Saber style!
-Practicality | ~3 days | N hrs
-
-
 **Deviate** Lightspeed editor
 deviate | deviate.png | placeholder.mp4
-https://github.com/rakinishraq/deviate
+https://github.com/rakinishraq/deviate#readme
 linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
 
 Keyboard-based video clipper with Valorant kill detection

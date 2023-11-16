@@ -85,7 +85,7 @@
     padding: 10px;
     font-size: 2rem;
 }
-.fa-box-archive {opacity: 0.6}
+.fa-box-archive, .fa-clock {opacity: 0.6}
 
 /* card back grid */
 
