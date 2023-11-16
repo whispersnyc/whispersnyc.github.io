@@ -77,19 +77,30 @@
     100% {opacity: 1}
 }
 
+.card-front i {
+    text-shadow: 0 0 0.3em rgba(0, 0, 0, 0.5);
+    position: absolute; /* Add this line */
+    top: 0; /* Add this line */
+    right: 0; /* Add this line */
+    padding: 10px;
+    font-size: 2rem;
+}
+.fa-box-archive {opacity: 0.6}
+
 /* card back grid */
 
 .card-grid {
     width: 100%; height: 100%;
     display: grid;
     grid-template-columns: 1.618fr 1fr;
-    grid-template-rows: 1.618fr 1fr;
+    grid-template-rows: 1.618fr 0.382fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
         "video text"
         "video link";
     border-radius: 10px;
+    background-color: #ecf0f1;
 }
 .video {
     grid-area: video;
@@ -113,6 +124,8 @@
     color: #7f8c8d;
     font-size: 3rem;
     border-radius: 0px 0px 10px 0px;
+    box-shadow: 0 0 0.3em rgba(0, 0, 0, 0.5);
+    margin: 0px 5px 5px 5px;
 }
 .video, .link {
     display: flex;

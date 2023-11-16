@@ -2,7 +2,10 @@
 let card = " \
 <div class=\"card\">\n\
   <div class=\"card-inner\">\n\
-    <div class=\"card-front optimize glow\" id=\"%ID%\"><img src=\"media/%IMG%\"></div>\n\
+    <div class=\"card-front optimize glow\" id=\"%ID%\">\n\
+      <img src=\"media/%IMG%\">\n\
+      <i class=\"%ICON_CLASS%\"></i>\n\
+    </div>\n\
     <div class=\"card-back\">\n\
       <div class=\"card-grid\">\n\
         <div class=\"video\" onclick=\"play(this)\">\n\
@@ -35,7 +38,7 @@ $.get("cards.md", function(cards) {
   for (var c in cards) {
     // parse data
     const cardInfo = cards[c].split("\n");
-    const [id, img, vid] = cardInfo[1].split(" | ");
+    const [id, img, vid, icon] = cardInfo[1].split(" | ");
     const link = cardInfo[2]; const bg = cardInfo[3];
     const [focus, alpha, beta] = cardInfo.pop().split(" | ");
     const txt = cardInfo.slice(5).join("<br>");
@@ -47,7 +50,8 @@ $.get("cards.md", function(cards) {
       ).replace("%TXT%", txt).replace("%FOCUS%",
       focus.replaceAll(' ', '&nbsp')).replace("%ALPHA%",
       alpha.replaceAll(' ', '&nbsp')).replace("%BETA%",
-      beta.replaceAll(' ', '&nbsp')).replace("%VID%", vid));
+      beta.replaceAll(' ', '&nbsp')).replace("%VID%", vid
+      ).replace("%ICON_CLASS%", icon));
 
     // add gradient style
     $('head').append($('<style>').prop('type', 'text/css'

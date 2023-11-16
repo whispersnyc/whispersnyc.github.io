@@ -1,5 +1,15 @@
+**Paper Plane**
+paperplane | paperplane.png | paperplane.mp4 | fa-solid fa-box-archive
+https://thatkidfrom.nyc/PaperPlane/
+rgba(157, 246, 227, 0.7)
+
+My 2020 Flappy Bird clone made under a 2 hour time limit!
+It somehow took longer to replace the copyrighted sprites and fix PC refresh rate lol.
+Speedrun | < 2hrs | < 3hrs
+
+
 **Prisma** Color-match your PC
-prisma2 | prisma.png | prisma.mp4
+prisma2 | prisma.png | prisma.mp4 | fa-solid fa-star
 https://github.com/rakinishraq/prisma#readme
 linear-gradient(90deg, #56c9ff80 0%, #ff70e780 100%)
 
@@ -27,8 +37,19 @@ This is an updated 2021 project.
 Cost performance | < 2 days | ~3 days
 
 
+**Portfolio** 2022 Website
+portfolio | portfolio.png | portfolio.mp4 | fa-solid fa-box-archive
+https://thatkidfrom.nyc/22-Portfolio/
+rgba(242, 212, 206, 0.5)
+
+This was my best concept portfolio site from last year:
+The chillest possible vibe distilled into a website.
+Try the music in the top-right corner!
+Atmosphere | ~4 days | < 7hrs
+
+
 **Pulse Effect** VR Drums
-pulseeffect | pulseeffect.png | pulseeffect.mp4
+pulseeffect | pulseeffect.png | pulseeffect.mp4 | fa-solid fa-clock
 N/A
 rgba(0, 239, 243, 0.5)
 
@@ -43,24 +64,3 @@ linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
 
 Keyboard-based video clipper with Valorant kill detection
 Hotkeys | < 5 days | N/A
-
-
-**Paper Plane**
-paperplane | paperplane.png | paperplane.mp4
-https://thatkidfrom.nyc/PaperPlane/
-rgba(157, 246, 227, 0.7)
-
-My 2020 Flappy Bird clone made under a 2 hour time limit!
-It somehow took longer to replace the copyrighted sprites and fix PC refresh rate lol.
-Speedrun | < 2hrs | < 3hrs
-
-
-**Portfolio** 2022 Website
-portfolio | portfolio.png | portfolio.mp4
-https://thatkidfrom.nyc/22-Portfolio/
-rgba(242, 212, 206, 0.5)
-
-This was my best concept portfolio site from last year:
-The chillest possible vibe distilled into a website.
-Try the music in the top-right corner!
-Atmosphere | ~4 days | < 7hrs
