@@ -89,6 +89,7 @@ function confirmation() { // press enter prompt
 function activate() { // enter pressed
   $('body').css('overflow', 'hidden');
   updateTime();
+  setInterval(updateTime, 1000);
   systemd.innerHTML = "";
   document.getElementById("access").style.display = "none";
   document.getElementById("secret-container").style.display = "block";
@@ -120,6 +121,86 @@ function updateTime() {
   
   var year = date.getFullYear();
   var formattedDate = hours + ":" + minutes + " | " + day + ", " + month + " " + dateNumber + ordinal + " " + year;
-  setInterval(updateTime, 1000); // update the time every second
   document.getElementById("time").textContent = formattedDate;
+}
+
+
+$(document).ready(function() {
+  //confirmation(); activate();
+  $('#start').click(newWindow);
+})
+
+function newWindow() {
+  // make visible clone
+  var windowElement = $('.window');
+  var clone = windowElement.clone();
+  clone.css('display', 'block');
+  $('#secret-container').append(clone);
+
+  var titleBar = clone.find('.title-bar');
+  var isDragging = false;
+  var isResizing = false;
+  var dragOffsetX, dragOffsetY;
+  var resizeOffsetX, resizeOffsetY;
+  var initialWidth, initialHeight;
+  var bufferZone = 10; // The size of the buffer zone in pixels
+
+  titleBar.on('mousedown', function(e) {
+    isDragging = true;
+    dragOffsetX = e.clientX - clone.offset().left;
+    dragOffsetY = e.clientY - clone.offset().top;
+  });
+
+  var isResizingHorizontally = false;
+  var isResizingVertically = false;
+
+  $(window).on('mousedown', function(e) {
+    var cloneOffset = clone.offset();
+    var cloneWidth = clone.outerWidth();
+    var cloneHeight = clone.outerHeight();
+
+    // Check if the mouse is within the buffer zone of the window's right edge
+    if (e.clientX >= cloneOffset.left + cloneWidth - bufferZone && e.clientX <= cloneOffset.left + cloneWidth + bufferZone) {
+      isResizing = true;
+      isResizingHorizontally = true;
+      resizeOffsetX = e.clientX;
+      initialWidth = cloneWidth;
+    }
+
+    // Check if the mouse is within the buffer zone of the window's bottom edge
+    if (e.clientY >= cloneOffset.top + cloneHeight - bufferZone && e.clientY <= cloneOffset.top + cloneHeight + bufferZone) {
+      isResizing = true;
+      isResizingVertically = true;
+      resizeOffsetY = e.clientY;
+      initialHeight = cloneHeight;
+    }
+  });
+
+  $(window).on('mousemove', function(e) {
+    if (isDragging) {
+      clone.css('left', e.clientX - dragOffsetX + 'px');
+      clone.css('top', e.clientY - dragOffsetY + 'px');
+    }
+
+    if (isResizing) {
+      if (isResizingHorizontally) {
+        var dx = e.clientX - resizeOffsetX;
+        var newWidth = initialWidth + dx;
+        clone.css('width', newWidth + 'px');
+      }
+
+      if (isResizingVertically) {
+        var dy = e.clientY - resizeOffsetY;
+        var newHeight = initialHeight + dy;
+        clone.css('height', newHeight + 'px');
+      }
+    }
+  });
+
+  $(window).on('mouseup', function() {
+    isDragging = false;
+    isResizing = false;
+    isResizingHorizontally = false;
+    isResizingVertically = false;
+  });
 }

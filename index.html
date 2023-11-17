@@ -28,10 +28,11 @@
 
   <script src="https://cdn.jsdelivr.net/npm/grained@0.0.2/grained.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -75,6 +76,16 @@
           <div id="time"></div>
         </div>
         <div id="right">
+        </div>
+      </div>
+      <div class="window" style="display: none;">
+        <div class="title-bar">
+          <span class="title">Dialog Title</span>
+          <button class="close-button">x</button>
+        </div>
+        <div class="content">
+          <img src="image.jpg" alt="Image">
+          <p>Some text</p>
         </div>
       </div>
     </div>

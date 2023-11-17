@@ -28,11 +28,12 @@ let card = " \
 </div>";
 
 
-var inserted = 0;
 const columns = $("#columns").children();
 $.get("cards.md", function(cards) {
   // split into cards
-  cards = cards.trim().split("\n\n\n");
+  var cards = cards.trim().split("\n\n\n");
+  var clmnHTML = [[], []];
+  var clmn;
 
   // card loop
   for (var c in cards) {
@@ -42,16 +43,17 @@ $.get("cards.md", function(cards) {
     const link = cardInfo[2]; const bg = cardInfo[3];
     const [focus, alpha, beta] = cardInfo.pop().split(" | ");
     const txt = cardInfo.slice(5).join("<br>");
-    const clmn = ++inserted % 2 ? 1 : 2;
+    clmn = c % 2;
 
-    // insert html (highly compatible version)
-    columns[clmn].insertAdjacentHTML("beforeend",
+    // create html (highly compatible version)
+    clmnHTML[clmn].push(
       card.replace("%IMG%", img).replace("%ID%", id
       ).replace("%TXT%", txt).replace("%FOCUS%",
       focus.replaceAll(' ', '&nbsp')).replace("%ALPHA%",
       alpha.replaceAll(' ', '&nbsp')).replace("%BETA%",
       beta.replaceAll(' ', '&nbsp')).replace("%VID%", vid
-      ).replace("%ICON_CLASS%", icon));
+      ).replace("%ICON_CLASS%", icon)
+    );
 
     // add gradient style
     $('head').append($('<style>').prop('type', 'text/css'
@@ -68,8 +70,7 @@ $.get("cards.md", function(cards) {
   }
   
   // insert last card
-  columns[++inserted % 2 ? 1 : 2].insertAdjacentHTML(
-  "beforeend", " \
+  clmnHTML[++clmn % 2].push(" \
   <div class=\"card\" id=\"this\"> \
     <div class=\"card-inner\"> \
       <div class=\"card-front\"> \
@@ -86,6 +87,11 @@ $.get("cards.md", function(cards) {
     </div> \
   </div>"
   )
+
+  // push to DOM all at once
+  for (let i = 0; i < 2; i++) {
+    columns[i+1].innerHTML = clmnHTML[i].join('');
+  }
 
   // last card link
   $('#this').find('.link').click(() => {
@@ -106,4 +112,18 @@ $.get("cards.md", function(cards) {
 
   // optimize for mobile after cards are loaded
   if (isMobile) optimize();
+});
+
+let observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      let video = entry.target;
+      video.src = video.dataset.src;
+      observer.unobserve(video);
+    }
+  });
+}, { rootMargin: '0px 0px 200px 0px' });  // Adjust this value as needed
+
+document.querySelectorAll('.card-video').forEach(video => {
+  observer.observe(video);
 });
