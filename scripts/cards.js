@@ -20,13 +20,15 @@ let card = " \
           <em>Alpha:</em> %ALPHA%<br>\n\
           <em>Beta:</em> %BETA%\n\
         </div>\n\
-        <div class=\"link\" data-url=\"%LINK%\">\n\
-          <i class=\"fa-solid fa-arrow-right-from-bracket\"></i></div>\n\
+        <div class=\"link\" onclick=\"openLink('%LINK%')\">\n\
+          <i class=\"%LINK_ICON%\"></i>\n\
+        </div>\n\
       </div>\n\
     </div>\n\
   </div>\n\
 </div>";
 
+function openLink(url) { if (url !== 'N/A') window.open(url, '_blank') }
 
 const columns = $("#columns").children();
 $.get("cards.md", function(cards) {
@@ -43,6 +45,8 @@ $.get("cards.md", function(cards) {
     const link = cardInfo[2]; const bg = cardInfo[3];
     const [focus, alpha, beta] = cardInfo.pop().split(" | ");
     const txt = cardInfo.slice(5).join("<br>");
+    const link_icon = link == "N/A" ? "fa-regular fa-clock" :
+      "fa-solid fa-arrow-right-from-bracket"
     clmn = c % 2;
 
     // create html (highly compatible version)
@@ -52,21 +56,13 @@ $.get("cards.md", function(cards) {
       focus.replaceAll(' ', '&nbsp')).replace("%ALPHA%",
       alpha.replaceAll(' ', '&nbsp')).replace("%BETA%",
       beta.replaceAll(' ', '&nbsp')).replace("%VID%", vid
-      ).replace("%ICON_CLASS%", icon)
+      ).replace("%ICON_CLASS%", icon).replace("%LINK%", link
+      ).replace("%LINK_ICON%", link_icon)
     );
 
     // add gradient style
     $('head').append($('<style>').prop('type', 'text/css'
       ).html('#'+id+"::before {background: "+bg+'}'));
-    
-    // add link
-    const btn = $("#"+id).parent().find('.link');
-    if (link != "N/A") {
-      btn.click(function() {window.open(link, '_blank')});
-    } else {
-      btn.find('i').attr("class", "fa-regular fa-clock");
-      btn.addClass("nopointer");
-    }
   }
   
   // insert last card
@@ -80,7 +76,7 @@ $.get("cards.md", function(cards) {
           <div class=\"text\">\
             But there's more than meets the eye...\
           </div>\
-          <div class=\"link\">\
+          <div class=\"link\" onclick=\"openLink(\"https://github.com/rakinishraq/rakinishraq.github.io\")\">\
             <i class=\"fa-regular fa-eye\"></i> \
           </div>\
       </div> \
@@ -93,6 +89,7 @@ $.get("cards.md", function(cards) {
     columns[i+1].innerHTML = clmnHTML[i].join('');
   }
   clmnHTML = null; card = null;
+  
 
 
   // last card link
