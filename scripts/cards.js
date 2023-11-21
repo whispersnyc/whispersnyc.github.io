@@ -1,6 +1,6 @@
 // CARD GENERATION
 let card = " \
-<div class=\"card\">\n\
+<div class=\"card\" onmouseover=\"loadVideo(this, '%VID%')\">\n\
   <div class=\"card-inner\">\n\
     <div class=\"card-front optimize glow\" id=\"%ID%\">\n\
       <img src=\"media/%IMG%\">\n\
@@ -9,8 +9,7 @@ let card = " \
     <div class=\"card-back\">\n\
       <div class=\"card-grid\">\n\
         <div class=\"video\" onclick=\"play(this)\">\n\
-          <video muted class=\"card-video\">\n\
-            <source src=\"media/%VID%\" type=\"video/mp4\" onclick=\"full()\">\n\
+          <video src=\"%SRC%\" muted class=\"card-video\" onclick=\"full()\">\n\
           </video>\n\
           <i class=\"fa-solid fa-play\"></i>\n\
         </div>\n\
@@ -28,9 +27,16 @@ let card = " \
   </div>\n\
 </div>";
 
-function openLink(url) { if (url !== 'N/A') window.open(url, '_blank') }
+function loadVideo(element, videoFile) {
+  const video = $(element).find('.card-video');
+  if (!video.attr('src')) {
+    video.attr('src', 'media/'+videoFile);
+    video[0].load();
+  }
+}
 
 const columns = $("#columns").children();
+const lazy_load = false;
 $.get("cards.md", function(cards) {
   // split into cards
   var cards = cards.trim().split("\n\n\n");
@@ -47,6 +53,7 @@ $.get("cards.md", function(cards) {
     const txt = cardInfo.slice(5).join("<br>");
     const link_icon = link == "N/A" ? "fa-regular fa-clock" :
       "fa-solid fa-arrow-right-from-bracket"
+    const src = !lazy_load ? "media/"+vid : ""
     clmn = c % 2;
 
     // create html (highly compatible version)
@@ -57,7 +64,7 @@ $.get("cards.md", function(cards) {
       alpha.replaceAll(' ', '&nbsp')).replace("%BETA%",
       beta.replaceAll(' ', '&nbsp')).replace("%VID%", vid
       ).replace("%ICON_CLASS%", icon).replace("%LINK%", link
-      ).replace("%LINK_ICON%", link_icon)
+      ).replace("%LINK_ICON%", link_icon).replace("%SRC%", src)
     );
 
     // add gradient style
@@ -113,16 +120,3 @@ $.get("cards.md", function(cards) {
   if (isMobile) optimize();
 });
 
-let observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      let video = entry.target;
-      video.src = video.dataset.src;
-      observer.unobserve(video);
-    }
-  });
-}, { rootMargin: '0px 0px 200px 0px' });  // Adjust this value as needed
-
-document.querySelectorAll('.card-video').forEach(video => {
-  observer.observe(video);
-});
