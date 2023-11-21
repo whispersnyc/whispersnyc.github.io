@@ -8,7 +8,7 @@ It somehow took longer to replace the copyrighted sprites and fix PC refresh rat
 Speedrun | < 2hrs | < 3hrs
 
 
-**Prisma** Color-match your PC
+**Prisma** Color-match your PC | none
 prisma2 | prisma.png | prisma.mp4 | fa-solid fa-star
 https://github.com/rakinishraq/prisma#readme
 linear-gradient(90deg, #56c9ff80 0%, #ff70e780 100%)
@@ -18,7 +18,7 @@ Compatibility | ~3 days | T - 4 days
 
 
 **Nacho** Mr. Nacho Bro
-nacho | nacho.png | nacho.mp4
+nacho | nacho.png | nacho.mp4 | none
 https://github.com/rakinishraq/Nacho/releases/download/v0.2.0-alpha/Nacho.exe
 radial-gradient(at center bottom, #ff000066, #33ffb180)
 
@@ -28,7 +28,7 @@ Epicness | < 5 days | N/A
 
 
 **FeverGPT** Discord GPT-4 with plugins?
-fevergpt | fevergpt.png | placeholder.mp4
+fevergpt | fevergpt.png | placeholder.mp4 | none
 https://github.com/rakinishraq/fever-gpt#readme
 rgba(49, 51, 56, 0.40)
 
@@ -52,7 +52,7 @@ Ease of use | N/A | N/A
 
 
 **M.E.R.C** Fitness Regimen
-merc | merc.png | merc.mp4
+merc | merc.png | merc.mp4 | none
 https://thatkidfrom.nyc/merc
 rgba(82, 60, 190, 0.3)
 
@@ -62,8 +62,8 @@ Cost performance | < 2 days | ~3 days
 
 
 **Pulse Effect** VR Drums
-pulseeffect | pulseeffect.png | pulseeffect.mp4 | fa-solid fa-clock
-N/A
+pulseeffect | pulseeffect.png | pulseeffect.mp4 | none
+https://github.com/rakinishraq/PulseEffect
 rgba(0, 239, 243, 0.5)
 
 Learn the drums in VR with guiding notes Beat Saber style!
@@ -82,7 +82,7 @@ Atmosphere | ~4 days | < 7hrs
 
 
 **Deviate** Lightspeed editor
-deviate | deviate.png | placeholder.mp4
+deviate | deviate.png | placeholder.mp4 | none
 https://github.com/rakinishraq/deviate#readme
 linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
 

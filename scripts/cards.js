@@ -92,6 +92,8 @@ $.get("cards.md", function(cards) {
   for (let i = 0; i < 2; i++) {
     columns[i+1].innerHTML = clmnHTML[i].join('');
   }
+  clmnHTML = null; card = null;
+
 
   // last card link
   $('#this').find('.link').click(() => {
