@@ -63,7 +63,7 @@ Cost performance | < 2 days | ~3 days
 
 **Pulse Effect** VR Drums
 pulseeffect | pulseeffect.png | pulseeffect.mp4 | none
-https://github.com/rakinishraq/PulseEffect
+https://github.com/rakinishraq/PulseEffectVR
 rgba(0, 239, 243, 0.5)
 
 Learn the drums in VR with guiding notes Beat Saber style!

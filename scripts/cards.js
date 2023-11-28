@@ -96,14 +96,10 @@ $.get("cards.md", function(cards) {
     columns[i+1].innerHTML = clmnHTML[i].join('');
   }
   clmnHTML = null; card = null;
-  
-
 
   // last card link
-  $('#this').find('.link').click(() => {
-    window.open('https://github.com/rakinishraq/rakinishraq.github.io',
-    '_blank');
-  });
+  $('#this').find('.link').click(() =>
+    openLink('https://github.com/rakinishraq/rakinishraq.github.io'));
 
   // last card hover darken effect
   $('#this').hover( 
@@ -120,3 +116,7 @@ $.get("cards.md", function(cards) {
   if (isMobile) optimize();
 });
 
+
+function openLink(url) {
+  window.open(url, '_blank');
+}
