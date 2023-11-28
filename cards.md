@@ -61,13 +61,13 @@ This is an updated 2021 project.
 Cost performance | < 2 days | ~3 days
 
 
-**Pulse Effect** VR Drums
-pulseeffect | pulseeffect.png | pulseeffect.mp4 | none
-https://github.com/rakinishraq/PulseEffectVR
-rgba(0, 239, 243, 0.5)
+**Deviate** Lightspeed editor
+deviate | deviate.png | placeholder.mp4 | none
+https://github.com/rakinishraq/deviate#readme
+linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
 
-Learn the drums in VR with guiding notes Beat Saber style!
-Practicality | ~3 days | N hrs
+Keyboard-based video clipper with Valorant kill detection
+Hotkeys | < 5 days | N/A
 
 
 **Portfolio** 2022 Website
@@ -81,10 +81,10 @@ Try the music in the top-right corner!
 Atmosphere | ~4 days | < 7hrs
 
 
-**Deviate** Lightspeed editor
-deviate | deviate.png | placeholder.mp4 | none
-https://github.com/rakinishraq/deviate#readme
-linear-gradient(0deg, #daa89b80 0%, #abcec9 100%);
+**Pulse Effect** VR Drums
+pulseeffect | pulseeffect.png | pulseeffect.mp4 | fa-solid fa-box-archive
+https://github.com/rakinishraq/PulseEffectVR
+rgba(0, 239, 243, 0.5)
 
-Keyboard-based video clipper with Valorant kill detection
-Hotkeys | < 5 days | N/A
+Learn the drums in VR with guiding notes Beat Saber style!
+Practicality | ~3 days | N hrs

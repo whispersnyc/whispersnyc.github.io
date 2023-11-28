@@ -70,7 +70,8 @@ updateGradient();
 
 // OPTIMIZE OPTION
 if (!isMobile) {
-  $('#para').append('<br><br><span id="extra-text"><p>This page has lots of subtle effects so if your device is lagging, <a href="#" id="optimize-link">click me to disable them</a>.</p></span>');
+  $('#para').append('<br><br><span id="extra-text"><p>This page has lots of subtle effects so if your device is lagging, \
+    <a href="#" id="optimize-link">click me to disable them</a>.</p></span>');
 }
 
 $('#optimize-link').click(function(e) {

@@ -118,5 +118,6 @@ $.get("cards.md", function(cards) {
 
 
 function openLink(url) {
+  if (url == 'N/A') return;
   window.open(url, '_blank');
 }
