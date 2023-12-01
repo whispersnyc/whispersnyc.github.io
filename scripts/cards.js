@@ -37,7 +37,7 @@ function loadVideo(element, videoFile) {
 
 const columns = $("#columns").children();
 const lazy_load = false;
-$.get("cards.md", function(cards) {
+function processData(cards) {
   // split into cards
   var cards = cards.trim().split("\n\n\n");
   var clmnHTML = [[], []];
@@ -45,6 +45,9 @@ $.get("cards.md", function(cards) {
 
   // card loop
   for (var c in cards) {
+    // skip invalid blocks like top
+    if (cards[c][0] != '*') continue
+
     // parse data
     const cardInfo = cards[c].split("\n");
     const [id, img, vid, icon] = cardInfo[1].split(" | ");
@@ -93,7 +96,7 @@ $.get("cards.md", function(cards) {
 
   // push to DOM all at once
   for (let i = 0; i < 2; i++) {
-    columns[i+1].innerHTML = clmnHTML[i].join('');
+    columns[2-i].innerHTML = clmnHTML[i].join('');
   }
   clmnHTML = null; card = null;
 
@@ -114,6 +117,20 @@ $.get("cards.md", function(cards) {
 
   // optimize for mobile after cards are loaded
   if (isMobile) optimize();
+};
+
+
+$.ajax({
+  url: 'cards.txt',
+  type: 'HEAD',
+  error: function() {
+    // debug cards.txt not found, use gist
+    $.get('https://gist.githubusercontent.com/rakinishraq/5ce3b34e8e99d9c4b9e269229b6e5f34/raw/e94f16c244defd3209c36d03e976df1a7f205458/My%2520Portfolio.txt', processData);
+  },
+  success: function() {
+    // use local cards.txt
+    $.get('cards.txt', processData);
+  }
 });
 
 
