@@ -96,7 +96,7 @@ function processData(cards) {
 
   // push to DOM all at once
   for (let i = 0; i < 2; i++) {
-    columns[i+1].innerHTML = clmnHTML[i].join('');
+    $(`#col${i}`).html(clmnHTML[i].join(''));
   }
   clmnHTML = null; card = null;
 
