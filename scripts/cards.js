@@ -74,9 +74,11 @@ function processData(cards) {
     $('head').append($('<style>').prop('type', 'text/css'
       ).html('#'+id+"::before {background: "+bg+'}'));
     
-      card_id++;
+    // all cards in same col if mobile
+    if (!isMobile) card_id++;
   }
 
+  console.log(clmnHTML[1]);
   // push to DOM all at once
   for (let i = 0; i < clmnHTML.length; i++) {
     $(`.gallery:eq(${i})`).html(clmnHTML[i].join(''));
