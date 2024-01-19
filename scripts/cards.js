@@ -41,7 +41,7 @@ function processData(cards) {
   // split into cards
   var cards = cards.trim().split("\n\n\n");
   var clmnHTML = [[], [], []];
-  var clmn;
+  var clmn; var card_id = 0;
 
   // card loop
   for (var c in cards) {
@@ -57,7 +57,7 @@ function processData(cards) {
     const link_icon = link == "N/A" ? "fa-regular fa-clock" :
       "fa-solid fa-arrow-right-from-bracket"
     const src = !lazy_load ? "media/"+vid : ""
-    clmn = c % 3;
+    clmn = card_id % 3;
 
     // create html (highly compatible version)
     clmnHTML[clmn].push(
@@ -73,11 +73,13 @@ function processData(cards) {
     // add gradient style
     $('head').append($('<style>').prop('type', 'text/css'
       ).html('#'+id+"::before {background: "+bg+'}'));
+    
+      card_id++;
   }
 
   // push to DOM all at once
   for (let i = 0; i < clmnHTML.length; i++) {
-    $(`#col${i}`).html(clmnHTML[i].join(''));
+    $(`.gallery:eq(${i})`).html(clmnHTML[i].join(''));
   }
   clmnHTML = null; card = null;
   
@@ -96,7 +98,17 @@ $.ajax({
   type: 'HEAD',
   error: function() {
     // debug cards.txt not found, use gist
-    $.get('https://gist.github.com/rakinishraq/5ce3b34e8e99d9c4b9e269229b6e5f34/raw/', processData);
+    $.ajax({
+      url: 'https://api.github.com/gists/5ce3b34e8e99d9c4b9e269229b6e5f34',
+      type: 'GET',
+      headers: { 'Accept': 'application/vnd.github.v3.raw' },
+      error: function() {
+        console.log("Couldn't access gist nor cards.txt");
+      },
+      success: function(data) {
+        processData(data.files["My Portfolio.txt"].content);
+      }
+    });
   },
   success: function() {
     // use local cards.txt
