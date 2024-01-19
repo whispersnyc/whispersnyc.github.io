@@ -96,7 +96,7 @@ $.ajax({
   type: 'HEAD',
   error: function() {
     // debug cards.txt not found, use gist
-    $.get('https://gist.githubusercontent.com/rakinishraq/5ce3b34e8e99d9c4b9e269229b6e5f34/raw/e94f16c244defd3209c36d03e976df1a7f205458/My%2520Portfolio.txt', processData);
+    $.get('https://gist.github.com/rakinishraq/5ce3b34e8e99d9c4b9e269229b6e5f34/raw/', processData);
   },
   success: function() {
     // use local cards.txt
