@@ -40,7 +40,7 @@ const lazy_load = false;
 function processData(cards) {
   // split into cards
   var cards = cards.trim().split("\n\n\n");
-  var clmnHTML = [[], []];
+  var clmnHTML = [[], [], []];
   var clmn;
 
   // card loop
@@ -57,7 +57,7 @@ function processData(cards) {
     const link_icon = link == "N/A" ? "fa-regular fa-clock" :
       "fa-solid fa-arrow-right-from-bracket"
     const src = !lazy_load ? "media/"+vid : ""
-    clmn = c % 2;
+    clmn = c % 3;
 
     // create html (highly compatible version)
     clmnHTML[clmn].push(
@@ -74,41 +74,12 @@ function processData(cards) {
     $('head').append($('<style>').prop('type', 'text/css'
       ).html('#'+id+"::before {background: "+bg+'}'));
   }
-  
-  // insert last card
-  clmnHTML[++clmn % 2].push(" \
-  <div class=\"card\" id=\"this\"> \
-    <div class=\"card-inner\"> \
-      <div class=\"card-front\"> \
-        <img src=\"media/this2.png\"> \
-      </div> \
-      <div class=\"card-back\"> \
-          <div class=\"text\">\
-            But there's more than meets the eye...\
-          </div>\
-          <div class=\"link\" onclick=\"openLink(\"https://github.com/rakinishraq/rakinishraq.github.io\")\">\
-            <i class=\"fa-regular fa-eye\"></i> \
-          </div>\
-      </div> \
-    </div> \
-  </div>"
-  )
 
   // push to DOM all at once
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < clmnHTML.length; i++) {
     $(`#col${i}`).html(clmnHTML[i].join(''));
   }
   clmnHTML = null; card = null;
-
-  // last card link
-  $('#this').find('.link').click(() =>
-    openLink('https://github.com/rakinishraq/rakinishraq.github.io'));
-
-  // last card hover darken effect
-  $('#this').hover( 
-    function() {$('body').css('background-color', 'black')},
-    function() {$('body').css('background-color', '')}
-  );
   
   // save original values
   const $video = $('video').first()
